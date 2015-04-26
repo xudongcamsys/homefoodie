@@ -1,0 +1,8 @@
+.row.col-sm-12
+  %h3
+    Welcome
+  %p
+    - if current_user && current_user.admin?
+      = link_to "Users:#{User.count} registered", users_path
+    - else
+      = link_to "Users:#{User.count} registered", profiles_path

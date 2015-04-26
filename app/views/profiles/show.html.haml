@@ -1,0 +1,11 @@
+%h3
+  = 'Profile'
+%p
+  = "Name: #{@user.name || (Not provided)}"
+%p
+  = "Email: #{@user.email}"
+- if @user.id != current_user.id
+  - if !current_user.follows?(@user)
+    = link_to 'Follow', follows_path(user_id: @user.id), method: :post
+  - else
+    = link_to 'Unfollow', follows_path(user_id: @user.id), method: :delete
