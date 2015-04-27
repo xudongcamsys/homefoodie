@@ -15,7 +15,7 @@ class UserPolicy
   end
 
   def update?
-    is_admin?
+    is_admin? or is_current_user?
   end
 
   def finish_signup?

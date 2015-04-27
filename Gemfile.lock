@@ -41,6 +41,11 @@ GEM
     autoprefixer-rails (5.1.11)
       execjs
       json
+    aws-sdk (1.64.0)
+      aws-sdk-v1 (= 1.64.0)
+    aws-sdk-v1 (1.64.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -60,6 +65,14 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+    carrierwave-aws (0.5.0)
+      aws-sdk (~> 1.58)
+      carrierwave (~> 0.7)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     childprocess (0.5.6)
@@ -161,6 +174,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.4.3)
+    mini_magick (4.2.3)
     mini_portile (0.6.2)
     minitest (5.6.0)
     multi_json (1.11.0)
@@ -342,6 +356,8 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   capybara
+  carrierwave
+  carrierwave-aws
   coffee-rails (~> 4.1.0)
   database_cleaner
   devise
@@ -357,6 +373,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  mini_magick
   omniauth
   omniauth-facebook
   omniauth-oauth2

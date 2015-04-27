@@ -40,6 +40,11 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem "omniauth-wechat-oauth2"
 
+# upload image
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'carrierwave-aws'
+
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'

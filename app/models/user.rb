@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   has_one :profile
 
+  mount_uploader :avatar, AvatarUploader
+
   def set_default_role
     self.role ||= :user
   end
