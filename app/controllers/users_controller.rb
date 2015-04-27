@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
+  before_action :set_user, except: [:index]
   after_action :verify_authorized
 
   def index
@@ -8,12 +9,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     authorize @user
   end
 
   def update
-    @user = User.find(params[:id])
     authorize @user
     if @user.update_attributes(secure_params)
       redirect_to users_path, :notice => "User updated."
@@ -23,16 +22,35 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id])
-    authorize user
-    user.destroy
+    authorize @user
+    @user.destroy
     redirect_to users_path, :notice => "User deleted."
+  end
+
+  # GET/PATCH /users/:id/finish_signup
+  def finish_signup
+    authorize @user 
+
+    if request.patch? && params[:user] #&& params[:user][:email]
+      if @user.update_attributes(secure_params)
+        sign_in(@user, :bypass => true)
+        redirect_to @user, notice: 'Your profile was successfully updated.'
+      else
+        @show_errors = true
+      end
+    end
+
+    redirect_to root_url
   end
 
   private
 
   def secure_params
     params.require(:user).permit(:role)
+  end
+
+   def set_user
+    @user = User.find(params[:id])
   end
 
 end

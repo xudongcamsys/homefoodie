@@ -18,6 +18,10 @@ class UserPolicy
     is_admin?
   end
 
+  def finish_signup?
+    is_current_user?
+  end
+
   def destroy?
     return false if is_current_user?
     is_admin?

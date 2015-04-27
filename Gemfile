@@ -7,14 +7,13 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'socialization'
-gem 'redis'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
+
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'haml-rails'
@@ -24,6 +23,23 @@ gem 'sendgrid'
 gem 'simple_form'
 gem 'unicorn'
 gem 'unicorn-rails'
+
+# secrets management
+gem 'figaro'
+
+# follows, likes, mentionds
+gem 'socialization'
+
+# data store
+gem 'redis'
+
+# omniauth
+gem 'omniauth'
+gem 'omniauth-oauth2'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem "omniauth-wechat-oauth2"
+
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
