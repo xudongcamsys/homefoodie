@@ -35,10 +35,8 @@ gem 'redis'
 
 # omniauth
 gem 'omniauth'
-gem 'omniauth-oauth2'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-gem "omniauth-wechat-oauth2"
 
 # upload image
 gem 'carrierwave'
