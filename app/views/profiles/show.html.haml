@@ -3,7 +3,7 @@
 %p.pull-left
   = image_tag(@user.avatar.profile.url) if @user.avatar?
 %p
-  = "Name: #{@user.name || (Not provided)}"
+  = "Name: #{@user.name || '(Not provided)'}"
 %p
   = "Email: #{@user.email}"
 %p
