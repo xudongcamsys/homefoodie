@@ -43,6 +43,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'carrierwave-aws'
 
+gem 'font-awesome-rails'
+
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
