@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_user, except: [:index]
   after_action :verify_authorized
+  before_action :set_user, except: [:index]
 
   def index
     @users = User.all

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   after_initialize :set_default_role, :if => :new_record?
 
   has_one :profile
+  has_one :location
 
   mount_uploader :avatar, AvatarUploader
 
@@ -12,6 +13,10 @@ class User < ActiveRecord::Base
 
   def profile
     super || build_profile
+  end 
+
+  def location
+    super || build_location
   end 
 
   TEMP_EMAIL_PREFIX = 'change@me'
@@ -78,6 +83,10 @@ class User < ActiveRecord::Base
 
   def build_profile
     Profile.create(user: self)
+  end
+
+  def build_location
+    Location.create(user: self)
   end
 
 end
