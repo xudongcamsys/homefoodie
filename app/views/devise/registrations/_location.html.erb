@@ -1,5 +1,8 @@
+<a name="user-location"></a>
 <div class="authform">
-  <h3>Location</h3>
+  <h3>
+    Location
+  </h3>
   <%= form_for(current_user) do |f| %>
     <%= f.fields_for :location do |ff| %>
       <div class="form-group">
@@ -13,7 +16,7 @@
       </div>
     <% end %>
     <div class="form-group">
-      <%= f.submit "Update", class: 'btn btn-success' %>
+      <%= f.submit "Update", class: 'btn btn-success right' %>
     </div>
   <% end %>
 </div>

@@ -1,0 +1,26 @@
+- edit_tabs = {"basic_profile" => 'Basic Profile', "avatar" => 'User Photo', "location" => 'Location Settings', "delete_account" => 'Delete Account'}
+- active_tab = edit_tabs.keys.index(params[:tab]) ? params[:tab] : "basic_profile"
+
+.row.row-offcanvas.row-offcanvas-left
+  .col-sm-3.col-md-2.sidebar-offcanvas#sidebar{role: 'navigation'}
+    %ul.nav.nav-sidebar
+      - edit_tabs.each do | tab, label |
+        %li{class: active_tab == tab ? "active" : ''}
+          %a{href:"?tab=#{tab}"}
+            = label
+
+        
+  .col-sm-9.col-md-10
+    %p.visible-xs
+      %button.btn-btn-primary.btn-xs{type: 'button', data: {toggle: 'offcanvas'}}
+        %i.glyphicon.glyphicon-chevron-left
+
+    - if edit_tabs.keys.index(active_tab)
+      = render partial: active_tab
+
+:javascript 
+  $(document).ready(function() {
+    $('[data-toggle=offcanvas]').click(function() {
+      $('.row-offcanvas').toggleClass('active');
+    });
+  });
