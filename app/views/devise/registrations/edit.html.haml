@@ -1,5 +1,7 @@
 - edit_tabs = {"basic_profile" => 'Basic Profile', "avatar" => 'User Photo', "location" => 'Location Settings', "delete_account" => 'Delete Account'}
+
 - active_tab = edit_tabs.keys.index(params[:tab]) ? params[:tab] : "basic_profile"
+- active_tab_title = edit_tabs[active_tab]
 
 .row.row-offcanvas.row-offcanvas-left
   .col-sm-3.col-md-2.sidebar-offcanvas#sidebar{role: 'navigation'}
@@ -15,7 +17,9 @@
       %button.btn.btn-primary.btn-xs{type: 'button', data: {toggle: 'offcanvas'}}
         %i.glyphicon.glyphicon-chevron-left
 
-    - if edit_tabs.keys.index(active_tab)
+    .authform
+      %h3
+        = active_tab_title
       = render partial: active_tab
 
 :javascript 
