@@ -1,0 +1,27 @@
+.authform
+  %h3
+    Location
+  = form_for(current_user) do |f|
+    = f.fields_for :location do |ff|
+      .form-group
+        = ff.label "Turn on location?"
+        = ff.check_box :is_geocodable
+      
+      .form-group
+        = ff.label "Searchable by location?"
+        = ff.check_box :is_visible
+      
+    .form-group
+      = f.submit "Update", class: 'btn btn-success right'
+
+:javascript
+  $(document).ready(function() {
+    $('#user_location_attributes_is_geocodable').on('change', function() {
+      if(this.checked) {
+        $('#user_location_attributes_is_visible').prop('checked',true);
+        track_location();
+      } else {
+        $('#user_location_attributes_is_visible').prop('checked',false);
+      }
+    });
+  });

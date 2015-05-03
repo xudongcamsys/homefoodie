@@ -15,7 +15,7 @@
       = yield
 
 :javascript
-  if(#{current_user && current_user.location.is_geocodable}) {
+  if(#{(current_user && current_user.location.is_geocodable) || false}) {
     track_location();
   }
 

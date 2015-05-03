@@ -13,11 +13,3 @@ update_location = (lat, lng) ->
 window.track_location = track_location = ->
   navigator.geolocation.getCurrentPosition (position) ->
     update_location position.coords.latitude, position.coords.longitude
-
-$ ->
-  $('#user_location_attributes_is_geocodable').on 'change', ->
-    if this.checked
-      $('#user_location_attributes__is_visible').prop 'checked',true
-      track_location()
-    else
-      $('#user_location_attributes__is_visible').prop 'checked',false
