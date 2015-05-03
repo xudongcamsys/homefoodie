@@ -13,3 +13,9 @@
     %main{:role => "main"}
       = render 'layouts/messages'
       = yield
+
+:javascript
+  if(#{current_user && current_user.location.is_geocodable}) {
+    track_location();
+  }
+

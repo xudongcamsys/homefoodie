@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def secure_params
-    params.require(:user).permit(:name, :role, :avatar)
+    params.require(:user).permit(:name, :role, :avatar, location_attributes: [ :is_geocodable, :is_visible, :id ])
   end
 
    def set_user

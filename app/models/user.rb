@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_one :location
 
   mount_uploader :avatar, AvatarUploader
+  accepts_nested_attributes_for :location
 
   def set_default_role
     self.role ||= :user
