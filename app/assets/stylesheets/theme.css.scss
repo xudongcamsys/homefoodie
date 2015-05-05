@@ -75,6 +75,13 @@ a:focus {
     font-size: 16px;
 }
 
+.navbar-toggle {
+    background-color: $body-bg !important;
+    .icon-bar {
+        background-color: $navbar-default-bg !important;
+    }
+}
+
 .navbar-custom .navbar-brand .navbar-toggle:focus,
 .navbar-custom .navbar-brand .navbar-toggle:active {
     outline: 0;
