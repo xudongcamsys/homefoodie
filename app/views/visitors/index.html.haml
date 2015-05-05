@@ -1,8 +1,9 @@
-.row.col-sm-12
-  %h3
-    Welcome
-  %p
-    - if current_user && current_user.admin?
-      = link_to "Users:#{User.count} registered", users_path
-    - else
-      = link_to "Users:#{User.count} registered", profiles_path
+%header.intro
+  .intro-body
+    .container
+      .row
+        .col-md-8.col-md-offset-2
+          %h1.brand-heading
+            Homefoodie
+          %p.intro-text
+            Explore home-made yum in your neighborhood

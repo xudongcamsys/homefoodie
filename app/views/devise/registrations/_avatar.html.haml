@@ -6,7 +6,7 @@
       = image_tag( current_user.avatar.profile.url )
     
   .form-group
-    = f.file_field :avatar
+    = f.file_field :avatar, class: 'form-control'
     = f.hidden_field :avatar_cache
   
   .form-group

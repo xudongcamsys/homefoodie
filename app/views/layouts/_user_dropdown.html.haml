@@ -1,6 +1,6 @@
 %li.dropdown
   %a.dropdown-toggle{href: '#', data: {toggle: 'dropdown'}, role: 'button', aria: {expanded: 'true'}}
-    = image_tag(current_user.avatar.tiny.url, style: 'display: inline-block;') if current_user.avatar?
+    = image_tag(current_user.avatar.tiny.url, style: 'display: inline-block; border-radius: 10px;') if current_user.avatar?
     = current_user.name || 'My Account'
     %span.caret
   %ul.dropdown-menu{role: 'menu'}

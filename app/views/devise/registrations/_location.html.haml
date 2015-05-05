@@ -2,12 +2,12 @@
   = devise_error_messages!
   = f.fields_for :location do |ff|
     .form-group
-      = ff.label "Turn on location?"
       = ff.check_box :is_geocodable
+      = ff.label "Turn on location?"
     
     .form-group
-      = ff.label "Searchable by location?"
       = ff.check_box :is_visible
+      = ff.label "Searchable by location?"
     
   .form-group
     = f.submit "Update", class: 'btn btn-success right'

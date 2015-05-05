@@ -1,16 +1,16 @@
 -# navigation styled for Bootstrap 3.0
-%nav.navbar.navbar-default.navbar-fixed-top
+%nav.navbar.navbar-custom.navbar-fixed-top
   .container
-    .navbar-header.clearfix
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-main-collapse", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a{:href => root_url, class: 'navbar-brand'}
+      %a.navbar-brand.page-scroll{:href => root_url}
         %i.fa.fa-lg.fa-cutlery
         %span.sr-only Home
         Home
-    .collapse.navbar-collapse
+    .collapse.navbar-collapse.navbar-main-collapse
       %ul.nav.navbar-nav.pull-right
         = render 'layouts/navigation_links'

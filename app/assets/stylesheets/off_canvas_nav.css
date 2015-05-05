@@ -38,7 +38,12 @@
   padding-right: 20px;
   padding-left: 20px;
 }
+
+.nav-sidebar > li > a:hover {
+  color: $body-bg;
+  background-color: $text-color
+}
 .nav-sidebar > .active > a {
-  color: #fff;
+  color: $body-bg;
   background-color: #428bca;
 }
