@@ -7,9 +7,9 @@
     
   .form-inputs
     = f.input :title
-    = f.input :image, class: 'form-control', as: :file
+    = f.input :image, html: { class: 'form-control'}, as: :file
     = f.hidden_field :image_cache
 
 
   .form-actions
-    = f.button :submit, class: 'btn btn-primary'
+    = f.button :submit, "Upload Photo", class: 'btn btn-primary'

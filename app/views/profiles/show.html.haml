@@ -11,4 +11,4 @@
   |
   = link_to "Followers: #{@user.followers(User).count}", user_followers_path(@user)
 = render partial: 'profiles/follow_button', locals: {user: @user}
-= link_to "Dishes", user_dishes_path(@user), class: 'btn btn-default'
+= link_to "Dishes", user_dishes_path(@user), class: 'btn btn-info'
