@@ -1,7 +1,8 @@
 class DishPhoto < ActiveRecord::Base
-  validates :title, presence: true
-
   belongs_to :dish
+  
+  validates :title, presence: true
+  validates :dish, presence: true
 
   mount_uploader :image, DishPhotoUploader
 end

@@ -36,7 +36,7 @@
   %h3
     Gallery
   - @dish.dish_photos.each do | dish_photo|
-    .col-sm-3.col-md-2
+    .col-sm-3.col-md-2.well
       = render partial: 'dish_photos/profile', locals: {dish_photo: dish_photo}
-  .row
+  .row.col-sm-12.well
     = render partial: 'dish_photos/form', locals: {dish: @dish, dish_photo: @dish.dish_photos.new}
