@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     resource :profile, only: [:show]
     resources :followees, only: [:index]
     resources :followers, only: [:index]
-    resources :dishes
+    resources :dishes do
+      collection do
+        get 'tags/:tag', to: 'dishes#index', as: :tag
+      end
+    end
   end
 
   resource :location, only: [:update]

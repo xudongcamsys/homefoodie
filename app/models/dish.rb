@@ -7,4 +7,6 @@ class Dish < ActiveRecord::Base
   validates :name, presence: true
   validates :user, presence: true
 
+  acts_as_taggable
+
 end

@@ -7,7 +7,13 @@ class DishesController < ApplicationController
   # GET /dishes
   # GET /dishes.json
   def index
-    @dishes = @user.dishes.all
+    if params[:tag]
+      @dishes = @user.dishes.tagged_with(params[:tag])
+    else
+      @dishes = @user.dishes.all
+    end
+
+    
     authorize @dishes
   end
 
@@ -83,6 +89,6 @@ class DishesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dish_params
-      params.require(:dish).permit(:name, :food_preference_id, :food_type_id, :cuisine_id, :ingredients).merge(user_id: @user.id)
+      params.require(:dish).permit(:name, :food_preference_id, :food_type_id, :cuisine_id, :ingredients, :tag_list).merge(user_id: @user.id)
     end
 end

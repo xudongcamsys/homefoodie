@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   accepts_nested_attributes_for :location
 
+  # tag owner
+  acts_as_tagger
+
   def set_default_role
     self.role ||= :user
   end

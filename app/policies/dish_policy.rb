@@ -14,6 +14,10 @@ class DishPolicy
     is_current_user?
   end
 
+  def create?
+    is_current_user?
+  end
+
   def show?
     true
   end

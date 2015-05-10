@@ -4,7 +4,6 @@ FactoryGirl.define do
     food_preference nil
 food_type nil
 cuisine nil
-ingredients "MyString"
 user nil
   end
 

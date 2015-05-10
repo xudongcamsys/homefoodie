@@ -3,10 +3,11 @@
 
   .form-inputs
     = f.input :name
-    = f.input :food_preference_id, :collection => FoodPreference.uniq.pluck(:name, :id), :selected => @dish.food_preference_id, :value => :id, :label_method => lambda { |v| t(v[0][:name])}, label: "Food Preference", input_html: { class: 'form-control' }
-    = f.input :food_type_id, :collection => FoodType.uniq.pluck(:name, :id), :selected => @dish.food_type_id, :value => :id, :label_method => lambda { |v| t(v[0][:name])}, label: "Type", input_html: { class: 'form-control' }
-    = f.input :cuisine_id, :collection => Cuisine.uniq.pluck(:name, :id), :selected => @dish.cuisine_id, :value => :id, :label_method => lambda { |v| t(v[0][:name])}, label: "Cuisine", input_html: { class: 'form-control' }
-    = f.input :ingredients, as: :text
+    = f.input :food_preference_id, :collection => FoodPreference.order(:name).uniq, :selected => @dish.food_preference_id, :value_method => :id, :label => :name, :include_blank => true, label: "Food Preference", input_html: { class: 'form-control' }
+    = f.input :food_type_id, :collection => FoodType.order(:name).uniq, :selected => @dish.food_type_id, :value_method => :id, :label => :name, :include_blank => true, label: "Type", input_html: { class: 'form-control' }
+    = f.input :cuisine_id, :collection => Cuisine.order(:name).uniq, :selected => @dish.cuisine_id, :value_method => :id, :label => :name, :include_blank => true, label: "Cuisine", input_html: { class: 'form-control' }
+    = f.input :ingredients
+    = f.input :tag_list, label: 'Tags (seprated by commas)'
 
 
   .form-actions

@@ -45,6 +45,12 @@ gem 'carrierwave-aws'
 
 gem 'font-awesome-rails'
 
+# tagging
+gem 'acts-as-taggable-on', '~> 3.4'
+
+# commenting
+gem 'acts_as_commentable'
+
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
