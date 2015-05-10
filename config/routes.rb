@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       collection do
         get 'tags/:tag', to: 'dishes#index', as: :tag
       end
+
+      resources :dish_photos
     end
   end
 

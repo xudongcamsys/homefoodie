@@ -3,6 +3,7 @@ class Dish < ActiveRecord::Base
   belongs_to :food_type
   belongs_to :cuisine
   belongs_to :user
+  has_many :dish_photos
 
   validates :name, presence: true
   validates :user, presence: true

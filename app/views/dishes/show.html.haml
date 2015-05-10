@@ -1,33 +1,42 @@
-%h3
-  = @dish.name
-- if @dish.food_preference
+%section.col-lg-3
+  %h3
+    = @dish.name
+  - if @dish.food_preference
+    %p
+      %b
+        Preference:
+      = @dish.food_preference.name
+  - if @dish.food_type
+    %p
+      %b
+        Type:
+      = @dish.food_type.name
+  - if @dish.cuisine
+    %p
+      %b
+        Cuisine:
+      = @dish.cuisine.name
   %p
     %b
-      Preference:
-    = @dish.food_preference.name
-- if @dish.food_type
-  %p
-    %b
-      Type:
-    = @dish.food_type.name
-- if @dish.cuisine
-  %p
-    %b
-      Cuisine:
-    = @dish.cuisine.name
-%p
-  %b
-    Ingredients:   
-  = @dish.ingredients
-  
-- if !@dish.tag_list.blank?
-  %p
-    %b
-      Tags:   
-    - @dish.tag_list.each do |t| 
-      = link_to t, tag_user_dishes_path(@dish.user, t), class: 'btn btn-xs btn-info' 
+      Ingredients:   
+    = @dish.ingredients
+    
+  - if !@dish.tag_list.blank?
+    %p
+      %b
+        Tags:   
+      - @dish.tag_list.each do |t| 
+        = link_to t, tag_user_dishes_path(@dish.user, t), class: 'btn btn-xs btn-info' 
 
-- if current_user == @user
-  = link_to 'Edit', edit_user_dish_path(@user, @dish)
-  \|
-= link_to 'Back', user_dishes_path(@user)
+  - if current_user == @user
+    = link_to 'Edit', edit_user_dish_path(@user, @dish)
+    \|
+  = link_to 'Back', user_dishes_path(@user)
+%section.col-lg-9
+  %h3
+    Gallery
+  - @dish.dish_photos.each do | dish_photo|
+    .col-sm-3.col-md-2
+      = render partial: 'dish_photos/profile', locals: {dish_photo: dish_photo}
+  .row
+    = render partial: 'dish_photos/form', locals: {dish: @dish, dish_photo: @dish.dish_photos.new}

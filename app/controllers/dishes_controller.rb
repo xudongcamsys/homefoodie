@@ -4,8 +4,6 @@ class DishesController < ApplicationController
   before_action :set_user
   before_action :set_dish, only: [:show, :edit, :update, :destroy]
 
-  # GET /dishes
-  # GET /dishes.json
   def index
     if params[:tag]
       @dishes = @user.dishes.tagged_with(params[:tag])
@@ -13,29 +11,22 @@ class DishesController < ApplicationController
       @dishes = @user.dishes.all
     end
 
-    
     authorize @dishes
   end
 
-  # GET /dishes/1
-  # GET /dishes/1.json
   def show
     authorize @dish
   end
 
-  # GET /dishes/new
   def new
     @dish = Dish.new(user: @user)
     authorize @dish
   end
 
-  # GET /dishes/1/edit
   def edit
     authorize @dish
   end
 
-  # POST /dishes
-  # POST /dishes.json
   def create
     @dish = Dish.new(dish_params)
     authorize @dish
@@ -51,8 +42,6 @@ class DishesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /dishes/1
-  # PATCH/PUT /dishes/1.json
   def update
     authorize @dish
     respond_to do |format|
@@ -66,8 +55,6 @@ class DishesController < ApplicationController
     end
   end
 
-  # DELETE /dishes/1
-  # DELETE /dishes/1.json
   def destroy
     authorize @dish
     @dish.destroy

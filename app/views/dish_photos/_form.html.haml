@@ -1,0 +1,15 @@
+= simple_form_for([dish.user, dish, dish_photo]) do |f|
+  = f.error_notification message:print_error_messages(f)
+
+  - if dish_photo.image?
+    .form-group
+      = image_tag( dish_photo.image.profile.url )
+    
+  .form-inputs
+    = f.input :title
+    = f.input :image, class: 'form-control', as: :file
+    = f.hidden_field :image_cache
+
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
