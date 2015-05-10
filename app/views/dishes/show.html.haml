@@ -1,0 +1,22 @@
+%p#notice= notice
+
+%h3
+  = @dish.name
+- if @dish.food_preference
+  %p
+    = @dish.food_preference.name
+- if @dish.food_type
+  %p
+    = @dish.food_type.name
+- if @dish.cuisine
+  %p
+    = @dish.cuisine.name
+%p
+  %b
+    Ingredients:   
+  = @dish.ingredients
+
+- if current_user == @user
+  = link_to 'Edit', edit_user_dish_path(@user, @dish)
+  \|
+= link_to 'Back', user_dishes_path(@user)

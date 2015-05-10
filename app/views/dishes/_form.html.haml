@@ -1,0 +1,13 @@
+= simple_form_for([@user, @dish]) do |f|
+  = f.error_notification message:print_error_messages(f)
+
+  .form-inputs
+    = f.input :name
+    = f.input :food_preference_id, :collection => FoodPreference.uniq.pluck(:name, :id), :selected => @dish.food_preference_id, :value => :id, :label_method => lambda { |v| t(v[0][:name])}, label: "Food Preference", input_html: { class: 'form-control' }
+    = f.input :food_type_id, :collection => FoodType.uniq.pluck(:name, :id), :selected => @dish.food_type_id, :value => :id, :label_method => lambda { |v| t(v[0][:name])}, label: "Type", input_html: { class: 'form-control' }
+    = f.input :cuisine_id, :collection => Cuisine.uniq.pluck(:name, :id), :selected => @dish.cuisine_id, :value => :id, :label_method => lambda { |v| t(v[0][:name])}, label: "Cuisine", input_html: { class: 'form-control' }
+    = f.input :ingredients, as: :text
+
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'

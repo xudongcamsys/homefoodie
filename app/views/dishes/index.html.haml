@@ -1,0 +1,22 @@
+%h1 
+  = "#{@user.name || User}'s dishes"
+
+%table.table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @dishes.each do |dish|
+      %tr
+        %td= link_to dish.name, user_dish_path(@user, dish), class: 'btn btn-primary'
+        - if @user == current_user
+          %td= link_to 'Edit', edit_user_dish_path(@user, dish), class: 'btn btn-xs btn-success'
+          %td= link_to 'Destroy', user_dish_path(@user, dish), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
+
+%br
+
+- if @user == current_user
+  = link_to 'New Dish', new_user_dish_path(@user)

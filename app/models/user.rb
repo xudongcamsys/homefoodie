@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_one :location
+  has_many :dishes
 
   mount_uploader :avatar, AvatarUploader
   accepts_nested_attributes_for :location

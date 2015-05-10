@@ -11,10 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428233609) do
+ActiveRecord::Schema.define(version: 20150510153203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cuisines", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dishes", force: :cascade do |t|
+    t.integer  "food_preference_id"
+    t.integer  "food_type_id"
+    t.integer  "cuisine_id"
+    t.integer  "user_id",            null: false
+    t.string   "name",               null: false
+    t.string   "ingredients"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "dishes", ["cuisine_id"], name: "index_dishes_on_cuisine_id", using: :btree
+  add_index "dishes", ["food_preference_id"], name: "index_dishes_on_food_preference_id", using: :btree
+  add_index "dishes", ["food_type_id"], name: "index_dishes_on_food_type_id", using: :btree
+  add_index "dishes", ["user_id"], name: "index_dishes_on_user_id", using: :btree
+
+  create_table "food_preferences", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "food_types", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -74,6 +108,10 @@ ActiveRecord::Schema.define(version: 20150428233609) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "dishes", "cuisines"
+  add_foreign_key "dishes", "food_preferences"
+  add_foreign_key "dishes", "food_types"
+  add_foreign_key "dishes", "users"
   add_foreign_key "identities", "users"
   add_foreign_key "locations", "users"
   add_foreign_key "profiles", "users"

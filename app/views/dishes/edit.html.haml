@@ -1,0 +1,7 @@
+%h1 Editing dish
+
+= render 'form'
+
+= link_to 'Show', user_dish_path(@user, @dish)
+\|
+= link_to 'Back', user_dishes_path(@user)

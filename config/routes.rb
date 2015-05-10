@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resource :profile, only: [:show]
     resources :followees, only: [:index]
     resources :followers, only: [:index]
+    resources :dishes
   end
 
   resource :location, only: [:update]
