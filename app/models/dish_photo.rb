@@ -5,4 +5,6 @@ class DishPhoto < ActiveRecord::Base
   validates :dish, presence: true
 
   mount_uploader :image, DishPhotoUploader
+
+  acts_as_likeable
 end

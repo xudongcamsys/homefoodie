@@ -1,3 +1,14 @@
+- dish = dish_photo.dish
 %h5
   = dish_photo.title
 %img{src: "#{dish_photo.image.profile.url}"}
+- is_current_user = dish.user == current_user
+%div{style: 'position:absolute; bottom:0px; padding-bottom:5px;'}
+  - if !is_current_user
+    - if current_user && !current_user.likes?(dish_photo)
+      = render partial: 'dish_photos/like', locals: {dish_photo: dish_photo}
+    - else
+      = render partial: 'dish_photos/liked', locals: {dish_photo: dish_photo}
+  - if is_current_user
+    = link_to (raw "<i class='fa fa-edit'></i>"), edit_user_dish_dish_photo_path(dish.user, dish, dish_photo), class: 'btn btn-xs btn-success'
+    = link_to (raw "<i class='fa fa-remove'></i>"), user_dish_dish_photo_path(dish.user, dish, dish_photo), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'

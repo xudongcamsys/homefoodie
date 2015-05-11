@@ -1,0 +1,7 @@
+.like{style: 'display: inline-block;'}
+  %a.btn.btn-xs.btn-info{href: dish_photo_like_path(dish_photo), data: {method: :post, remote: true}}
+    %i.fa.fa-thumbs-up
+    - like_count = dish_photo.likers(User).count
+    - if like_count > 0
+      %span.badge
+        = like_count

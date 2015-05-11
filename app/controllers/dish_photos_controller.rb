@@ -41,7 +41,7 @@ class DishPhotosController < ApplicationController
   def update
     authorize @dish_photo
     respond_to do |format|
-      if @dish_photo.update(dish_params)
+      if @dish_photo.update(dish_photo_params)
         format.html { redirect_to [@dish.user, @dish], notice: 'Photo was successfully updated.' }
         format.json { render :show, status: :ok, location: @dish_photo }
       else
@@ -53,7 +53,7 @@ class DishPhotosController < ApplicationController
 
   def destroy
     authorize @dish_photo
-    @dish_phoot.destroy
+    @dish_photo.destroy
     respond_to do |format|
       format.html { redirect_to [@dish.user, @dish], notice: 'Photo was successfully destroyed.' }
       format.json { head :no_content }

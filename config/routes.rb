@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   resources :profiles, only: [:index]
 
   resource :follows, only: [:create, :destroy]
+  post 'like_dish_photo/:dish_photo_id', to: 'dish_photo_likes#create', as: :dish_photo_like
 end

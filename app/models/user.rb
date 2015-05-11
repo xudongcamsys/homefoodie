@@ -2,9 +2,9 @@ class User < ActiveRecord::Base
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
-  has_one :profile
-  has_one :location
-  has_many :dishes
+  has_one :profile, dependent: :destroy
+  has_one :location, dependent: :destroy
+  has_many :dishes, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
   accepts_nested_attributes_for :location
@@ -36,6 +36,9 @@ class User < ActiveRecord::Base
   # follow a user and allow to be followed
   acts_as_follower
   acts_as_followable
+
+  # liker
+  acts_as_liker
 
   # omniauth for multiple providers
   def self.find_for_oauth(auth, signed_in_resource = nil)

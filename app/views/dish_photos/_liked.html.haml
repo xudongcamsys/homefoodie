@@ -1,0 +1,6 @@
+.like{style: 'display: inline-block;'}
+  %i.fa.fa-thumbs-up
+  - like_count = dish_photo.likers(User).count
+  - if like_count > 0
+    %span.badge
+      = like_count
