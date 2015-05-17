@@ -32,6 +32,26 @@
     = link_to 'Edit', edit_user_dish_path(@user, @dish)
     \|
   = link_to 'Back', user_dishes_path(@user)
+
+  .rating
+    - class_name = 'readonly-star' if !current_user || current_user == @dish.user
+    %div{class: class_name ? class_name : ''}
+      = rating_for @dish, Dish::RATE_DIMENSION_DISH, :cancel => false, :enable_half => true, :half_show => true
+      .raters-count{id: "Dish_#{@dish.id}_raters_count"}
+        = "#{@dish.raters_count} ratings"
+    
+    :javascript
+      $(document).ready(function(){
+        $(".readonly-star .star").each(function() {
+          console.log('disable');
+          $(this).raty('set', { readOnly: true });
+        });
+      });
+  .comments
+    - @dish.comments.each do | comment |
+      = render partial: 'comments/comment', locals: {comment: comment}
+  .new-comment
+    = render partial: 'comments/form', locals: {commentable: @dish}
 %section.col-lg-9
   %h3
     Gallery

@@ -1,0 +1,3 @@
+- if @obj.respond_to? 'raters_count'
+  - rater_count_id = "#{@obj.class.name}_#{@obj.id}_raters_count"
+  $("#" + "#{rater_count_id}").html("#{@obj.raters_count} ratings");

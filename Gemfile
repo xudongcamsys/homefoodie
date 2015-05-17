@@ -51,6 +51,12 @@ gem 'acts-as-taggable-on', '~> 3.4'
 # commenting
 gem 'acts_as_commentable'
 
+# rating
+gem 'ratyrate'
+
+# markdown
+#gem 'redcarpet'
+
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'

@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   # tag owner
   acts_as_tagger
 
+  # rater
+  ratyrate_rater
+
   def set_default_role
     self.role ||= :user
   end

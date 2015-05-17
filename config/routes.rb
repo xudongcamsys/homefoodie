@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post '/rate' => 'rater#create', :as => 'rate'
   root to: 'visitors#index'
   
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
       end
 
       resources :dish_photos
+      resources :comments, only: [:create, :destroy]
     end
   end
 
