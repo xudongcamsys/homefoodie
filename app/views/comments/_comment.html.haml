@@ -11,5 +11,4 @@
         | 
         = link_to 'Delete', [current_user, comment.commentable, comment], method: :delete, remote: true
     %p
-      /= markdown comment.comment
-      = comment.comment
+      = markdown comment.comment

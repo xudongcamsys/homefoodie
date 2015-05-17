@@ -55,7 +55,7 @@ gem 'acts_as_commentable'
 gem 'ratyrate'
 
 # markdown
-#gem 'redcarpet'
+gem 'redcarpet'
 
 group :development do
   gem 'better_errors'
