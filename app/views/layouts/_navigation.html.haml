@@ -13,7 +13,8 @@
         Home
     .collapse.navbar-collapse.navbar-main-collapse
       %ul.nav.navbar-nav
-        %li 
-          = link_to "Dishes", user_dishes_path(current_user)
+        - if current_user
+          %li 
+            = link_to "Dishes", user_dishes_path(current_user)
       %ul.nav.navbar-nav.pull-right
         = render 'layouts/navigation_links'
