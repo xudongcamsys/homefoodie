@@ -1,6 +1,7 @@
-= simple_form_for [current_user, commentable, commentable.comments.new], remote: true do |f|
-  = f.error_notification
-  = f.hidden_field :klass, name: 'klass', value: commentable.class.name
-  = f.hidden_field :klass, name: 'commentable_id', value: commentable.id
-  = f.input :comment, label: false, as: :text, placeholder: 'Enter your comment'
-  = f.button :submit, class: 'btn btn-success'
+- if current_user
+  = simple_form_for [current_user, commentable, commentable.comments.new], remote: true do |f|
+    = f.error_notification
+    = f.hidden_field :klass, name: 'klass', value: commentable.class.name
+    = f.hidden_field :klass, name: 'commentable_id', value: commentable.id
+    = f.input :comment, label: false, as: :text, placeholder: 'Enter your comment'
+    = f.button :submit, class: 'btn btn-success'

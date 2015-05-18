@@ -34,8 +34,8 @@
   = link_to 'Back', user_dishes_path(@user)
 
   .rating
-    - class_name = 'readonly-star' if !current_user || current_user == @dish.user
-    %div{class: class_name ? class_name : ''}
+    - class_name = (!current_user || current_user == @dish.user) ? 'readonly-star' : ''
+    %div{class: "#{class_name}"}
       = rating_for @dish, Dish::RATE_DIMENSION_DISH, :cancel => false, :enable_half => true, :half_show => true
       .raters-count{id: "Dish_#{@dish.id}_raters_count"}
         = "#{@dish.raters_count} ratings"
@@ -57,6 +57,6 @@
   - @dish.dish_photos.each do | dish_photo|
     .col-sm-3.col-md-2.well{style:'height: 150px;', id: "dish-photo-#{dish_photo.id}"}
       = render partial: 'dish_photos/profile', locals: {dish_photo: dish_photo}
-  - if current_user = @dish.user
+  - if current_user == @dish.user
     .row.col-sm-12.well
       = render partial: 'dish_photos/form', locals: {dish: @dish, dish_photo: @dish.dish_photos.new}
