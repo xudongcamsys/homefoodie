@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:index, :show]
   after_action :verify_authorized
   before_action :set_user
   before_action :set_dish, only: [:show, :edit, :update, :destroy]
