@@ -1,4 +1,6 @@
 class Dish < ActiveRecord::Base
+  searchkick
+
   belongs_to :food_preference
   belongs_to :food_type
   belongs_to :cuisine
@@ -19,3 +21,4 @@ class Dish < ActiveRecord::Base
   end
 
 end
+

@@ -99,6 +99,14 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    elasticsearch (1.0.9)
+      elasticsearch-api (= 1.0.9)
+      elasticsearch-transport (= 1.0.9)
+    elasticsearch-api (1.0.9)
+      multi_json
+    elasticsearch-transport (1.0.9)
+      faraday
+      multi_json
     erubis (2.7.0)
     execjs (2.5.2)
     factory_girl (4.5.0)
@@ -165,6 +173,9 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.2)
     jwt (1.4.1)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.9.3)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -298,6 +309,10 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    searchkick (0.8.7)
+      activemodel
+      elasticsearch (>= 1)
+      hashie
     selenium-webdriver (2.45.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
@@ -379,6 +394,7 @@ DEPENDENCIES
   hub
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   launchy
   mini_magick
   omniauth
@@ -398,6 +414,7 @@ DEPENDENCIES
   redis
   rspec-rails
   sass-rails (~> 5.0)
+  searchkick
   selenium-webdriver
   sendgrid
   simple_form

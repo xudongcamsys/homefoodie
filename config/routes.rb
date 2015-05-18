@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'search', to: 'search#search'
+
   resource :location, only: [:update]
 
   resources :profiles, only: [:index]

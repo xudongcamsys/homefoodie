@@ -57,6 +57,12 @@ gem 'ratyrate'
 # markdown
 gem 'redcarpet'
 
+# elasticsearch
+gem 'searchkick'
+
+# pagination
+gem 'kaminari'
+
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
