@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'search', to: 'search#search'
+  get 'dish_search', to: 'search#dish'
 
   resource :location, only: [:update]
 
