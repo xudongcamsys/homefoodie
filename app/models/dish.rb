@@ -20,5 +20,25 @@ class Dish < ActiveRecord::Base
     Rate.where(rateable_id: id, dimension: RATE_DIMENSION_DISH).pluck(:rater_id).uniq.count
   end
 
+  def search_data
+    if user && user.location && user.location.is_visible
+      lat = user.location.lat
+      lng = user.location.lng
+    end
+
+    pref_name = food_preference.name if food_preference
+    type_name = food_type.name if food_type
+    cuisine_name = cuisine.name if cuisine
+    
+    {
+      name: name,
+      ingredients: ingredients,
+      location: [lat, lng],
+      food_preference: pref_name,
+      food_type: type_name,
+      cuisine: cuisine_name
+    }
+  end
+
 end
 
