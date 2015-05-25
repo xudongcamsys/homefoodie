@@ -1,0 +1,14 @@
+%h1
+  Find Dish
+ 
+= form_for dish_search_path, method: :get do |f|
+  %p
+    = f.label "Search for"
+    = text_field_tag :q, params[:q]
+    = submit_tag "Go", name: nil, class: 'btn btn-sm btn-success'
+
+- if @dishes
+  = render partial: 'dishes/list', locals: {dishes: @dishes}
+
+.col-sm-12
+  = paginate @dishes
