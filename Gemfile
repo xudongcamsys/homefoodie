@@ -82,7 +82,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails'
 end
-group [:integration, :production] do
+group :integration, :production do
   gem 'rails_12factor'
 end
 group :test do
