@@ -22,3 +22,6 @@ deploy:
   on:
     repo: xudongcamsys/homefoodie
     branch: develop
+notifications:
+  email:
+    - xudong.camsys@gmail.com
