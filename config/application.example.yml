@@ -10,7 +10,13 @@ AWS_ACCESS_KEY_ID:
 AWS_SECRET_ACCESS_KEY:  
 
 development:
+  S3_BUCKET_NAME:   
+integration:
   S3_BUCKET_NAME:       
+  ADMIN_NAME:
+  ADMIN_EMAIL:
+  ADMIN_PASSWORD:
+  DOMAIN_NAME:
 production:
   S3_BUCKET_NAME:       
   ADMIN_NAME:

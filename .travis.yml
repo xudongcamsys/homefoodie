@@ -1,0 +1,27 @@
+language: ruby
+cache: bundler
+bundler_args: "--without development"
+rvm:
+- 2.2.0
+before_script:
+- cp config/database.yml.travis config/database.yml
+script:
+- bundle exec /usr/bin/env RAILS_ENV=test rake db:drop db:create db:schema:load
+- bundle exec /usr/bin/env RAILS_ENV=test rspec
+branches:
+  only:
+  - develop
+  - master
+deploy:
+  provider: heroku
+  api_key:
+    secure: K7igTIXI688VFACqSTGsnCgyFz7SH3kz+2Je5EQQ6YTYcTu/Arb/wIMjPV7ze++fVBO0yefYX91aVV6jDw3HwPqtdqzE4ocW1IE5xd8nTTRhbveIFsPspDqwlsikQMi6jqChkWU3lwsmks5Hjm9syTfIbvTxADzRi/xIU0k891N2Xqp1uvIwbKOrsxVfnseFgJxEL+aUrFnqHbVi1wgvp5qMo5VSV31q5s9nH5F7opaByPMDiJiaH2B5d9LD9dnbqKYZmUi5gUDq4h85i6Gp/SnLdeKQklobg7LPVUMFQPRoApdvLgW5K4KtnVlnPjDfgGbo9fDA04vXEjNfFEyjmVNcP3lBdgAwEax0mVzJFk2hNlCO03brQxiQ8NBmKPAR9CdHXKGgJQKOFpbW0yBw39hpVvoJ75HRlNofNA54mGRnZC8DC6EBpu7SmLwhfRzaQgz1pRnV3xn1LHNSlVRgrGApUalXDCs3ao2KnwGXlAYCO8e3ZgTH75PbaT88FakrjHA1ZK3uc/ZH1/9RkzFbDGdz+s9kYV2wVFLin97KOioJkejKJLsPIqotZYKem5Kw9bKJXTq0IjWc5O8uesd2s6EXneI9dfUSi57OYEgCtyDv++8QIpbmsuCW3WY430w3SWJKvVXzAHp8oFv10FFshyKrxu4oSciMqcoKe+HsoHo=
+  run: rake db:migrate
+  app: homefoodie-int
+  strategy: api
+  on:
+    repo: xudongcamsys/homefoodie
+    branch: develop
+notifications:
+  email:
+    - xudong.camsys@gmail.com

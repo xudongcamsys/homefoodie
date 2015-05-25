@@ -1,0 +1,20 @@
+development:
+  adapter:  postgresql
+  encoding: unicode
+  database: homefoodie_development
+  pool:     5
+  timeout: 5000
+
+test: &test
+  adapter:  postgresql
+  encoding: unicode
+  database: homefoodie_test
+  pool:     5
+  timeout: 5000
+
+production:
+  adapter:  postgresql
+  encoding: unicode
+  database: homefoodie
+  pool:     5
+  timeout: 5000
