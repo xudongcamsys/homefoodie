@@ -14,8 +14,8 @@
       = yield
     = render partial: 'layouts/footer'
 
-:javascript
-  if(#{(current_user && current_user.location.is_geocodable) || false}) {
-    track_location();
-  }
+  :javascript
+    if(#{(current_user && current_user.location.is_geocodable) || false}) {
+      track_location();
+    }
 
