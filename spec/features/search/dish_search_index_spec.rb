@@ -1,11 +1,10 @@
-feature "Dish search page" do 
+feature "Dish search" do 
 
   before(:each) do 
-    Dish.reindex 
-    Dish.searchkick_index.refresh
+    search_reindex "Dish"
   end
 
-  scenario "user view dish search page" do 
+  scenario "user can see dish search page" do 
     visit root_path
 
     click_link "Find dish"
