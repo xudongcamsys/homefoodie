@@ -62,7 +62,12 @@ class ApplicationPolicy
   end
 
   def own_record?
-    user.present? && record.user == user
+
+    user.present? && 
+    (
+      record == user || 
+      (record.respond_to?(:user) && record.user == user)
+    )
   end
 end
 
