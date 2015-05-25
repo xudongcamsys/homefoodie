@@ -5,4 +5,12 @@ class UserPolicy< ApplicationPolicy
     end
   end
 
+  def index?
+    can_admin?
+  end
+
+  def show?
+    own_record? || can_admin?
+  end
+
 end

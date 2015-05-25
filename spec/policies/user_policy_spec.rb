@@ -36,9 +36,6 @@ describe UserPolicy do
   end
 
   permissions :destroy? do
-    it "prevents deleting yourself" do
-      expect(subject).not_to permit(current_user, current_user)
-    end
     it "allows an admin to delete any user" do
       expect(subject).to permit(admin, other_user)
     end
