@@ -6,11 +6,17 @@ feature "User view dishes", type: :feature do
 
     signin(user.email, user.password)
 
-    click_link "Dishes"
+    click_link "My dishes"
 
     expect(page).to have_css("h1", text: "Joe Bloggs's dishes")
 
     expect(page).to have_css("h5", text: "Thai Mussels")
+  end
+
+  scenario "guest user cannot see My Dishes link" do
+    visit root_path 
+
+    expect(page).to_not have_css("a", text: "My dishes")
   end
 
 end
