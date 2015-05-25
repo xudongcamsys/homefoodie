@@ -9,12 +9,19 @@
         %span.icon-bar
       %a.navbar-brand.page-scroll{:href => root_url}
         %i.fa.fa-lg.fa-cutlery
-        %span.sr-only Home
-        Home
+          %span.sr-only Home
+          Home
     .collapse.navbar-collapse.navbar-main-collapse
       %ul.nav.navbar-nav
         - if current_user
           %li 
-            = link_to "Dishes", user_dishes_path(current_user)
+            %a{href: user_dishes_path(current_user)}
+              %i.fa.fa-lg.fa-list
+                My dishes
+        %li 
+          %a{href: dish_search_path}
+            %i.fa.fa-lg.fa-search
+              Find dish
+          
       %ul.nav.navbar-nav.pull-right
         = render 'layouts/navigation_links'
