@@ -1,5 +1,5 @@
 class Dish < ActiveRecord::Base
-  searchkick
+  searchkick callbacks: :async, locations: ["location"]
 
   belongs_to :food_preference
   belongs_to :food_type
@@ -16,14 +16,25 @@ class Dish < ActiveRecord::Base
   RATE_DIMENSION_DISH = 'dish'
   ratyrate_rateable RATE_DIMENSION_DISH
 
+  def rates
+    Rate.where(rateable_id: id, dimension: RATE_DIMENSION_DISH)
+  end
+
   def raters_count
-    Rate.where(rateable_id: id, dimension: RATE_DIMENSION_DISH).pluck(:rater_id).uniq.count
+    rates.pluck(:rater_id).uniq.count
+  end
+
+  def rating
+    rates.average(:stars) || -1
   end
 
   def search_data
     if user && user.location && user.location.is_visible
       lat = user.location.lat
       lng = user.location.lng
+    else
+      lat = 1000
+      lng = 1000
     end
 
     pref_name = food_preference.name if food_preference
@@ -36,7 +47,9 @@ class Dish < ActiveRecord::Base
       location: [lat, lng],
       food_preference: pref_name,
       food_type: type_name,
-      cuisine: cuisine_name
+      cuisine: cuisine_name,
+      updated_at: updated_at,
+      rating: rating
     }
   end
 
