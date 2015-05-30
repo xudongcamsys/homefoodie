@@ -10,7 +10,11 @@ class UserPolicy< ApplicationPolicy
   end
 
   def show?
-    own_record? || can_admin?
+    owner? || can_admin?
+  end
+
+  def update?
+    owner? || can_admin?
   end
 
 end
