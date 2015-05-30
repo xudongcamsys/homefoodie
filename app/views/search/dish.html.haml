@@ -5,10 +5,16 @@
   %p
     = f.label "Search for"
     = text_field_tag :q, params[:q]
+    = check_box_tag :loc, true, params[:loc]
     = submit_tag "Go", name: nil, class: 'btn btn-sm btn-success'
+    = select_tag :sort, options_for_select([['Rating High to Low', 'rating_desc'],['Distance Low to High', 'distance_asc']], @sort_key), class: 'pull-right'
 
-- if @dishes
-  = render partial: 'dishes/list', locals: {dishes: @dishes}
+.row
+  .col-lg-3
+    = render partial: 'search/facets', locals: {facets: @facets}
+  .col-lg-9
+    - if @dishes
+      = render partial: 'dishes/list', locals: {dishes: @dishes}
 
 .col-sm-12
   = paginate @dishes
