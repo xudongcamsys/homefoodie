@@ -15,7 +15,6 @@ class ApplicationPolicy
   end
 
   def create?
-    #false
     user.present?
   end
 
@@ -24,7 +23,6 @@ class ApplicationPolicy
   end
 
   def update?
-    #false
     own_record? || can_admin?
   end
 
@@ -33,12 +31,10 @@ class ApplicationPolicy
   end
 
   def destroy?
-    #false
     update?
   end
 
   def scope
-    #Pundit.policy_scope!(user, record.class)
     record.class
   end
 
@@ -62,12 +58,11 @@ class ApplicationPolicy
   end
 
   def own_record?
+    user.present? && record.try(user) == user
+  end
 
-    user.present? && 
-    (
-      record == user || 
-      (record.respond_to?(:user) && record.user == user)
-    )
+  def owner?
+    user.present? && record == user
   end
 end
 
