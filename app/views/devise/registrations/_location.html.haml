@@ -17,7 +17,7 @@
     $('#user_location_attributes_is_geocodable').on('change', function() {
       if(this.checked) {
         $('#user_location_attributes_is_visible').prop('checked',true);
-        track_location();
+        trackLocation();
       } else {
         $('#user_location_attributes_is_visible').prop('checked',false);
       }
