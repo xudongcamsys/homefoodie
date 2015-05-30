@@ -1,0 +1,16 @@
+- facets.each do |k, facet|
+  - next if facet["terms"].count == 0
+  .panel.panel-success
+    .panel-heading
+      = k.titleize
+    .panel-body
+      %ul.list-group
+        - facet["terms"].sort_by{|a| a["term"]}.each do |term|
+          %li.list-group-item
+            - keyword = term["term"]
+            - href = "?#{k}=#{keyword}"
+            - href += "&q=#{params[:q]}"if params[:q]
+            %a{href: href}
+              = keyword
+              %span.badge
+                = term["count"]
