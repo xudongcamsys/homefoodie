@@ -20,4 +20,8 @@ module ApplicationHelper
     redcarpet = Redcarpet::Markdown.new(renderer, extensions)
     (redcarpet.render text).html_safe
   end
+
+  def geocodable?(user)
+    user && user.location.is_geocodable?
+  end
 end
