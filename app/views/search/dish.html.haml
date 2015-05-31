@@ -2,14 +2,22 @@
   Find Dish
  
 = form_for dish_search_path, method: :get do |f|
+  = hidden_field_tag 'lat', @search_params[:lat]
+  = hidden_field_tag 'lon', @search_params[:lon]
   %p
-    = f.label "Search for"
-    = text_field_tag :q, params[:q]
-    = check_box_tag :loc, true, params[:loc]
-    = submit_tag "Go", name: nil, class: 'btn btn-sm btn-success'
-    = select_tag :sort, options_for_select([['Rating High to Low', 'rating_desc'],['Distance Low to High', 'distance_asc']], @sort_key), class: 'pull-right'
+    %span.col-sm-4
+      = f.label "Search for"
+      = text_field_tag :q, @search_params[:key]
+    %span.col-sm-4
+      = f.label "Within"
+      = number_field_tag :within_dist, @search_params[:within_dist], min: 0, step: 0.1
+      = f.label " mile(s)"
+    %span.col-sm-4
+      = select_tag :sort, options_for_select([['Rating High to Low', 'rating_desc'],['Distance Low to High', 'distance_asc']], @search_params[:sort]) 
+  %p.col-sm-12
+    = submit_tag "Go", name: nil, class: 'btn btn-sm btn-success pull-left'
 
-.row
+.row.col-sm-12
   .col-lg-3
     = render partial: 'search/facets', locals: {facets: @facets}
   .col-lg-9
@@ -18,3 +26,15 @@
 
 .col-sm-12
   = paginate @dishes
+
+- unless @search_params[:lat] and @search_params[:lon]
+  :javascript
+    $(document).ready( function() {
+      var locationCallback = function(position) {
+        console.log(position);
+        $('#lat').val(position.coords.latitude);
+        $('#lon').val(position.coords.longitude);
+      };
+
+      getLocation(locationCallback); // initialize location
+    });
