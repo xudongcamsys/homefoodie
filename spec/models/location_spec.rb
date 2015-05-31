@@ -29,5 +29,17 @@ describe Location, type: :model do
     dish_results = Dish.search '*', where: {location: { near: [1.5, 1.5], within: '0.1mi'}}
     expect(dish_results.count).to eq(0)    
   end
+
+  it "# update_latlng when moved > 0.5 mile" do 
+    @another_loc = create(:location, user: @user)
+
+    @another_loc.update_latlng(1.5001, 1.5001)
+
+    expect(@another_loc.lat).to eq(1.5)
+
+    @another_loc.update_latlng(1.6, 1.6)
+
+    expect(@another_loc.lat).to eq(1.6)
+  end
 end
 
