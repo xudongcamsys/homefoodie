@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-updateLocation = (lat, lng) ->
+updateUserLocation = (lat, lng) ->
   $.ajax
     type: 'PATCH'
     url: '/location'
@@ -10,6 +10,21 @@ updateLocation = (lat, lng) ->
       lat: lat
       lng: lng
 
+window.getLocation = getLocation = (callback, isTrack)->
+  success = (pos) ->
+    if callback
+      callback pos
+
+  error = (err) ->
+    console.warn 'Failed to get location: ' + err.message
+
+  navigator.geolocation.getCurrentPosition success, error
+
+  if isTrack
+    # navigator.geolocation.clearWatch
+    navigator.geolocation.watchPosition success, error    
+
+
 window.trackLocation = trackLocation = ->
-  navigator.geolocation.getCurrentPosition (position) ->
-    updateLocation position.coords.latitude, position.coords.longitude
+  getLocation (position) ->
+    updateUserLocation position.coords.latitude, position.coords.longitude
