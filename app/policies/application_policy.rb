@@ -58,7 +58,7 @@ class ApplicationPolicy
   end
 
   def own_record?
-    user.present? && record.try(user) == user
+    user.present? && record.try(:user) == user
   end
 
   def owner?
