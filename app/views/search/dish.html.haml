@@ -21,12 +21,12 @@
   .col-lg-3
     = render partial: 'search/facets', locals: {facets: @facets, search_string: @search_string}
   .col-lg-9
-    = render partial: 'dishes/list', locals: {dishes: @dishes}
+    = render partial: 'dishes/list', locals: {dishes: @dishes, show_dist: @is_geocoded, lat: @search_params[:lat], lon: @search_params[:lon]}
 
 .col-sm-12
   = paginate @dishes
 
-- unless @search_params[:lat] and @search_params[:lon]
+- unless @is_geocoded
   :javascript
     $(document).ready( function() {
       var locationCallback = function(position) {

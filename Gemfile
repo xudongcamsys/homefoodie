@@ -63,6 +63,9 @@ gem 'searchkick'
 # pagination
 gem 'kaminari'
 
+# geolocation
+gem 'geokit-rails'
+
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
