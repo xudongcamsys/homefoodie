@@ -9,7 +9,7 @@
     = "No dish is found."
 - else
   - dishes.each do |dish|
-    .col-sm-4.col-md-3.well{style: 'height: 150px;'}
+    .col-sm-4.col-md-3.well{style: 'height: 150px; padding: 5px;'}
       %h5
         %a{href: user_dish_path(dish.user, dish)}
           = dish.name
@@ -17,9 +17,14 @@
           - if dish.dish_photos.first
             %img{src: "#{dish.dish_photos.first.image.profile.url}"}
       - if dish.user == current_user
-        %div{style: 'position:absolute; bottom:0px; padding-bottom:5px;'}
+        %div.col-sm-12{style: 'position:absolute; bottom:0px; padding-bottom:5px;'}
           = link_to 'Edit', edit_user_dish_path(dish.user, dish), class: 'btn btn-xs btn-success'
           = link_to 'Destroy', user_dish_path(dish.user, dish), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
+          - if show_dist
+            - dist = dish_distance(dish, lat, lon)
+            - if dist
+              %span.pull-right
+                = "#{number_with_delimiter(dist, precision: 2)} mi"
 
 / if this is current user's dish index page
 - if user && user == current_user

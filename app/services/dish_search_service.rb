@@ -24,6 +24,14 @@ class DishSearchService
     "within_dist=#{@search_params[:within_dist]}"
   end
 
+  def geocoded?
+    true if @search_params[:lat] and @search_params[:lon]
+  end
+
+  def search_by_dist?
+    geocoded? if @search_params[:within_dist]
+  end
+
   private
 
   def parse_params(params = {})
@@ -55,7 +63,7 @@ class DishSearchService
   def order
     if @search_params[:sort] == 'rating_desc'
       {rating: :desc}
-    elsif @search_params[:lat] and @search_params[:lon]
+    elsif geocoded?
       # distance_desc
       {
         _geo_distance: {
@@ -68,7 +76,7 @@ class DishSearchService
 
   def where
     where_cond = {}
-    if @search_params[:lat] and @search_params[:lon] and @search_params[:within_dist]
+    if search_by_dist?
       where_cond = {location: {near: [@search_params[:lat], @search_params[:lon]], within: "#{@search_params[:within_dist]}mi"}}
     end
 
