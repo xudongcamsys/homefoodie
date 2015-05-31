@@ -4,17 +4,22 @@
     - tag_cloud user.dishes.tag_counts, %w[btn-xs btn-sm btn-md btn-lg] do |tag, css_class| 
       = link_to tag.name, tag_user_dishes_path(@user, tag.name), class: "btn btn-info #{css_class}"
 
-- dishes.each do |dish|
-  .col-sm-4.col-md-3.well{style: 'height: 150px;'}
-    %h5
-      %a{href: user_dish_path(dish.user, dish)}
-        = dish.name
-        - if dish.dish_photos.first
-          %img{src: "#{dish.dish_photos.first.image.profile.url}"}
-    - if dish.user == current_user
-      %div{style: 'position:absolute; bottom:0px; padding-bottom:5px;'}
-        = link_to 'Edit', edit_user_dish_path(dish.user, dish), class: 'btn btn-xs btn-success'
-        = link_to 'Destroy', user_dish_path(dish.user, dish), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
+- if dishes.count == 0
+  %h4
+    = "No dish is found."
+- else
+  - dishes.each do |dish|
+    .col-sm-4.col-md-3.well{style: 'height: 150px;'}
+      %h5
+        %a{href: user_dish_path(dish.user, dish)}
+          = dish.name
+          = render partial: 'dishes/rating_star', locals: {dish: dish}
+          - if dish.dish_photos.first
+            %img{src: "#{dish.dish_photos.first.image.profile.url}"}
+      - if dish.user == current_user
+        %div{style: 'position:absolute; bottom:0px; padding-bottom:5px;'}
+          = link_to 'Edit', edit_user_dish_path(dish.user, dish), class: 'btn btn-xs btn-success'
+          = link_to 'Destroy', user_dish_path(dish.user, dish), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
 
 / if this is current user's dish index page
 - if user && user == current_user

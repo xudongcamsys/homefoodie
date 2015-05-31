@@ -34,18 +34,10 @@
   = link_to 'Back', user_dishes_path(@user)
 
   .rating
-    - class_name = (!current_user || current_user == @dish.user) ? 'readonly-rating-star' : 'rating-star'
-    %div{class: "#{class_name}"}
-      = rating_for @dish, Dish::RATE_DIMENSION_DISH, :cancel => false, :enable_half => true, :half_show => true
-      .raters-count{id: "Dish_#{@dish.id}_raters_count"}
-        = "#{@dish.raters_count} ratings"
-    
-    :javascript
-      $(document).ready(function(){
-        $(".readonly-rating-star .star").each(function() {
-          $(this).raty('set', { readOnly: true });
-        });
-      });
+    = render partial: 'dishes/rating_star', locals: {dish: @dish}
+    .raters-count{id: "Dish_#{@dish.id}_raters_count"}
+      = "#{@dish.raters_count} ratings"
+
   .comments
     - @dish.comments.each do | comment |
       = render partial: 'comments/comment', locals: {comment: comment}
