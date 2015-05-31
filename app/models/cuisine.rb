@@ -5,6 +5,6 @@ class Cuisine < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
 
   def reindex_dishes
-    dishes.reindex
+    Dish.reindex
   end
 end

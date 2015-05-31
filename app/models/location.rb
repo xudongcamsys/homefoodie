@@ -3,9 +3,9 @@ class Location < ActiveRecord::Base
 
   validates :user, presence: true
 
-  after_commit :reindex_dishes
+  after_save :reindex_dishes
 
   def reindex_dishes
-    user.dishes.reindex
+    Dish.reindex 
   end
 end
