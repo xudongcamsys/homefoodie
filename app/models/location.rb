@@ -8,7 +8,7 @@ class Location < ActiveRecord::Base
   after_save :reindex_dishes
 
   def reindex_dishes
-    Dish.reindex 
+    user.dishes.each { |dish| dish.reindex }
   end
 
   # only update latlng when moved distance > 0.5 mile
