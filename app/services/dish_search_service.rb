@@ -6,12 +6,22 @@ class DishSearchService
   end
 
   def search
-    @dishes = Dish.search search_params[:key], 
+    @dishes = Dish.search search_params[:q], 
       page: search_params[:page], 
       per_page: search_params[:per_page],
       order: order,
       where: where,
       facets: [:food_preference, :food_type, :cuisine]
+  end
+
+  # serialized search query string
+  def search_string
+    "q=#{@search_params[:q]}&" + 
+    "sort=#{@search_params[:sort]}&" + 
+    "per_page=#{@search_params[:per_page]}&" + 
+    "lat=#{@search_params[:lat]}&" + 
+    "lon=#{@search_params[:lon]}&" +
+    "within_dist=#{@search_params[:within_dist]}"
   end
 
   private
@@ -20,7 +30,7 @@ class DishSearchService
     search_params = {}
 
     # search keyword
-    search_params[:key] = params[:q].blank? ? '*' : params[:q]
+    search_params[:q] = params[:q].blank? ? '*' : params[:q]
 
     # sort 
     search_params[:sort] = params[:sort].blank? ? 'rating_desc' : params[:sort]
@@ -50,7 +60,7 @@ class DishSearchService
       {
         _geo_distance: {
           location: "#{@search_params[:lat]},#{@search_params[:lon]}",
-          order: "desc"
+          order: "asc"
         }
       }
     end

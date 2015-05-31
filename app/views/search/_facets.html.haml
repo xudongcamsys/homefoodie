@@ -9,7 +9,7 @@
           %li.list-group-item
             - keyword = term["term"]
             - href = "?#{k}=#{keyword}"
-            - href += "&q=#{params[:q]}"if params[:q]
+            - href += "&#{search_string}"
             %a{href: href}
               = keyword
               %span.badge
