@@ -16,10 +16,11 @@
           = render partial: 'dishes/rating_star', locals: {dish: dish}
           - if dish.dish_photos.first
             %img{src: "#{dish.dish_photos.first.image.profile.url}"}
-      - if dish.user == current_user
+      
         %div.col-sm-12{style: 'position:absolute; bottom:0px; padding-bottom:5px;'}
-          = link_to 'Edit', edit_user_dish_path(dish.user, dish), class: 'btn btn-xs btn-success'
-          = link_to 'Destroy', user_dish_path(dish.user, dish), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
+          - if dish.user == current_user
+            = link_to 'Edit', edit_user_dish_path(dish.user, dish), class: 'btn btn-xs btn-success'
+            = link_to 'Destroy', user_dish_path(dish.user, dish), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
           - if show_dist
             - dist = dish_distance(dish, lat, lon)
             - if dist
