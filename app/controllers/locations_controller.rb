@@ -4,15 +4,7 @@ class LocationsController < ApplicationController
   def update
     loc = current_user.location
 
-    # calculate moved distance
-    if loc.lat and loc.loc 
-      dist = nil
-    end
-
-    # only when location change is noticeable
-    if dist and dist > 1 # 1 mile
-      loc.update_attributes(lat: params[:lat], lng: params[:lng]) 
-    end
+    loc.update_latlng params[:lat], params[:lng] if loc
 
     render nothing: true
   end
