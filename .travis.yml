@@ -3,15 +3,18 @@ cache: bundler
 bundler_args: "--without development"
 rvm:
 - 2.2.0
+services:
+  - elasticsearch
 before_script:
-- cp config/database.yml.travis config/database.yml
+  - sleep 10
+  - cp config/database.yml.travis config/database.yml
 script:
-- bundle exec /usr/bin/env RAILS_ENV=test rake db:drop db:create db:schema:load
-- bundle exec /usr/bin/env RAILS_ENV=test rspec
+  - bundle exec /usr/bin/env RAILS_ENV=test rake db:drop db:create db:schema:load
+  - bundle exec /usr/bin/env RAILS_ENV=test rspec
 branches:
   only:
-  - develop
-  - master
+    - develop
+    - master
 deploy:
   provider: heroku
   api_key:
