@@ -68,8 +68,7 @@ class DishSearchService
       {
         _geo_distance: {
           location: "#{@search_params[:lat]},#{@search_params[:lon]}",
-          order: "asc",
-          ignore_unmapped: true
+          order: "asc"
         }
       }
     end
