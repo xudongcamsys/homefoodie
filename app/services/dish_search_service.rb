@@ -62,13 +62,14 @@ class DishSearchService
 
   def order
     if @search_params[:sort] == 'rating_desc'
-      {rating: :desc}
+      {rating: { order: "desc", ignore_unmapped: true} }
     elsif geocoded?
       # distance_desc
       {
         _geo_distance: {
           location: "#{@search_params[:lat]},#{@search_params[:lon]}",
-          order: "asc"
+          order: "asc",
+          ignore_unmapped: true
         }
       }
     end
