@@ -1,4 +1,6 @@
 - user = user || nil
+- show_dist = show_dist || false
+
 - if user
   #tag_cloud
     - tag_cloud user.dishes.tag_counts, %w[btn-xs btn-sm btn-md btn-lg] do |tag, css_class| 
@@ -21,6 +23,7 @@
           - if dish.user == current_user
             = link_to 'Edit', edit_user_dish_path(dish.user, dish), class: 'btn btn-xs btn-success'
             = link_to 'Destroy', user_dish_path(dish.user, dish), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
+
           - if show_dist
             - dist = dish_distance(dish, lat, lon)
             - if dist
