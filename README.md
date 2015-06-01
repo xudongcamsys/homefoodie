@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/xudongcamsys/homefoodie.svg?branch=develop)](https://travis-ci.org/xudongcamsys/homefoodie)
 Homefoodie
 ================
 
