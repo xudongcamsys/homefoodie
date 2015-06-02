@@ -7,7 +7,7 @@ class Location < ActiveRecord::Base
 
   after_save :reindex_dishes
 
-  INVALID_LOCATION = Location.new(lat: 1000, lng: 1000).readonly
+  INVALID_LOCATION = Location.new(lat: 1000, lng: 1000)
   NOTABLE_DISTANCE_IN_MILE = 0.5
 
   def reindex_dishes
