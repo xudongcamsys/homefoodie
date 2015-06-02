@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
     super || build_location
   end 
 
+  def visible_location
+    location.try(:is_visible) ? location : nil
+  end
+
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update

@@ -7,8 +7,14 @@ class Location < ActiveRecord::Base
 
   after_save :reindex_dishes
 
+  INVALID_LOCATION = Location.new(lat: 1000, lng: 1000).readonly
+
   def reindex_dishes
     user.dishes.each { |dish| dish.reindex }
+  end
+
+  def coords
+    [lat, lng]
   end
 
   # only update latlng when moved distance > 0.5 mile

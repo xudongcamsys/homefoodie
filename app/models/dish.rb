@@ -1,4 +1,5 @@
 require 'geokit'
+
 class Dish < ActiveRecord::Base
   searchkick callbacks: :async, locations: ["location"]
 
@@ -30,13 +31,7 @@ class Dish < ActiveRecord::Base
   end
 
   def search_data
-    if user && user.location && user.location.is_visible
-      lat = user.location.lat
-      lng = user.location.lng
-    else
-      lat = 1000
-      lng = 1000
-    end
+    location = user.try(:visible_location) || Location::INVALID_LOCATION
 
     pref_name = food_preference.name if food_preference
     type_name = food_type.name if food_type
@@ -45,7 +40,7 @@ class Dish < ActiveRecord::Base
     {
       name: name,
       ingredients: ingredients,
-      location: [lat, lng],
+      location: location.coords,
       food_preference: pref_name,
       food_type: type_name,
       cuisine: cuisine_name,
@@ -63,4 +58,3 @@ class Dish < ActiveRecord::Base
   end
 
 end
-
