@@ -11,7 +11,7 @@ class Location < ActiveRecord::Base
   NOTABLE_DISTANCE_IN_MILE = 0.5
 
   def reindex_dishes
-    user.dishes.each { |dish| dish.reindex }
+    Dish.searchkick_index.import(user.dishes)
   end
 
   def coords
