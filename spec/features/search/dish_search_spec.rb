@@ -1,7 +1,7 @@
 feature "Dish search" do 
 
   before(:each) do 
-    search_reindex "Dish"
+    search_reindex Dish
   end
 
   scenario "user can see dish search page" do 
@@ -18,7 +18,7 @@ feature "Dish search" do
     user = create(:user, name: 'Adam Silva')
     create(:dish, user: user, name: 'Roasted Chicken')
 
-    search_reindex "Dish"
+    search_reindex Dish
     
     fill_in  'q', :with => 'Chicken'
     click_button 'Go'

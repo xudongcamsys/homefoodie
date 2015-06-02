@@ -8,7 +8,7 @@ describe Location, type: :model do
 
   it "# reindex dishes after being changed" do 
     dish = create(:dish, user: @user)
-    search_reindex "Dish"
+    search_reindex Dish
 
     # verify there is 1 in total
     dish_results = Dish.search '*'
@@ -20,7 +20,7 @@ describe Location, type: :model do
 
     # location change should reindex dishes
     @location.update_attributes(lat: 100, lng: 100)
-    search_reindex "Dish"
+    search_reindex Dish
 
     dish_results = Dish.search '*', where: {location: { near: [1.5, 1.5], within: '0.1mi'}}
     expect(dish_results.count).to eq(0)    
