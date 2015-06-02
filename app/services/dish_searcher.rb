@@ -1,7 +1,7 @@
 class DishSearcher
   attr_accessor :search_params 
 
-  DEFAULT_SORTINGs_KEY = 'rating_desc'
+  DEFAULT_SORTING_KEY = 'rating_desc'
 
   def initialize(search_params = {})
     @search_params = parse_params search_params
@@ -22,7 +22,7 @@ class DishSearcher
   end
 
   def geocoded?
-    if @search_params[:lat] && @search_params[:lng]
+    @search_params[:lat] && @search_params[:lng]
   end
 
   def search_by_dist?
@@ -58,7 +58,7 @@ class DishSearcher
   end
 
   def order
-    if @search_params[:sort] == 'rating_desc'
+    if @search_params[:sort] == DEFAULT_SORTING_KEY
       {rating: { order: "desc", ignore_unmapped: true} }
     elsif geocoded?
       # distance_desc
