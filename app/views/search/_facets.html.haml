@@ -1,5 +1,5 @@
 - facets.each do |k, facet|
-  - next if facet["terms"].count == 0
+  - next if facet["terms"].empty?
   .panel.panel-success
     .panel-heading
       = k.titleize

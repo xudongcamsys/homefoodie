@@ -6,7 +6,7 @@
     - tag_cloud user.dishes.tag_counts, %w[btn-xs btn-sm btn-md btn-lg] do |tag, css_class| 
       = link_to tag.name, tag_user_dishes_path(@user, tag.name), class: "btn btn-info #{css_class}"
 
-- if dishes.count == 0
+- if dishes.empty?
   %h4
     = "No dish is found."
 - else
