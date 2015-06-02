@@ -16,7 +16,7 @@ feature "User view dishes", type: :feature do
   scenario "guest user cannot see My Dishes link" do
     visit root_path 
 
-    expect(page).to_not have_css("a", text: "My dishes")
+    expect(page).to_not have_link("My dishes")
   end
 
 end
