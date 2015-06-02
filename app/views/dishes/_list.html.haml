@@ -28,7 +28,7 @@
             - dist = dish.distance_to(lat, lon)
             - if dist
               %span.pull-right
-                = "#{number_with_delimiter(dist, precision: 2)} mi"
+                = "#{number_with_delimiter(number_with_precision(dist, precision: 2))} mi"
 
 / if this is current user's dish index page
 - if user && user == current_user
