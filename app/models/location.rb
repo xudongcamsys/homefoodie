@@ -8,6 +8,7 @@ class Location < ActiveRecord::Base
   after_save :reindex_dishes
 
   INVALID_LOCATION = Location.new(lat: 1000, lng: 1000).readonly
+  NOTABLE_DISTANCE_IN_MILE = 0.5
 
   def reindex_dishes
     user.dishes.each { |dish| dish.reindex }
@@ -20,24 +21,17 @@ class Location < ActiveRecord::Base
   # only update latlng when moved distance > 0.5 mile
   # this is to reduce the cost whenever location is changed, have to reindex dishes (ElasticSearch)
   def update_latlng(new_lat, new_lng)
-    new_lat = new_lat.try(:to_f) if !new_lat.blank?
-    new_lng = new_lng.try(:to_f) if !new_lng.blank?
+    return if new_lat.blank? || new_lng.blank? 
 
-    # calculate moved distance
-    dist = distance_from new_lat, new_lng
-
-    # only when location change is noticeable
-    if dist and dist > 0.5 # 1 mile
-      update_attributes(lat: new_lat, lng: new_lng) 
-    end
+    update_attributes(lat: new_lat, lng: new_lng) if notable_distance_from?(new_lat, new_lng)
   end
 
-  def distance_from(another_lat, another_lng)
-    if lat and lng and another_lat and another_lng
-      current_latlng = Geokit::LatLng.new(lat, lng)
-      another_latlng = Geokit::LatLng.new(another_lat, another_lng) 
-      
-      current_latlng.distance_to another_latlng 
-    end
+  def notable_distance_from?(another_lat, another_lng)
+    return unless lat && lng && another_lat && another_lng
+    
+    current_latlng = Geokit::LatLng.new(lat, lng)
+    another_latlng = Geokit::LatLng.new(another_lat, another_lng) 
+    
+    current_latlng.distance_to(another_latlng) > NOTABLE_DISTANCE_IN_MILE
   end
 end
