@@ -3,7 +3,7 @@
  
 = form_for dish_search_path, method: :get do |f|
   = hidden_field_tag 'lat', @search_params[:lat]
-  = hidden_field_tag 'lon', @search_params[:lon]
+  = hidden_field_tag 'lng', @search_params[:lng]
   %p
     %span.col-sm-4
       = f.label "Search for"
@@ -21,7 +21,7 @@
   .col-lg-3
     = render partial: 'search/facets', locals: {facets: @facets, search_string: @search_string}
   .col-lg-9
-    = render partial: 'dishes/list', locals: {dishes: @dishes, show_dist: @is_geocoded, lat: @search_params[:lat], lon: @search_params[:lon]}
+    = render partial: 'dishes/list', locals: {dishes: @dishes, show_dist: @is_geocoded, lat: @search_params[:lat], lng: @search_params[:lng]}
 
 .col-sm-12
   = paginate @dishes
@@ -32,7 +32,7 @@
       var locationCallback = function(position) {
         console.log(position);
         $('#lat').val(position.coords.latitude);
-        $('#lon').val(position.coords.longitude);
+        $('#lng').val(position.coords.longitude);
       };
 
       getLocation(locationCallback); // initialize location

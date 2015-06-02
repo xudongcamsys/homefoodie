@@ -50,10 +50,10 @@ class Dish < ActiveRecord::Base
   end
 
   # miles between a specific dish and given lat/lng location
-  def distance_to(lat, lon)
+  def distance_to(lat, lng)
     dish_loc = user.location rescue nil
     if dish_loc && dish_loc.is_visible
-      Geokit::LatLng.new(lat, lon).distance_to(Geokit::LatLng.new(dish_loc.lat, dish_loc.lng))
+      Geokit::LatLng.new(lat, lng).distance_to(Geokit::LatLng.new(dish_loc.lat, dish_loc.lng))
     end
   end
 

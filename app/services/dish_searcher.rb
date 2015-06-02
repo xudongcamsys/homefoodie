@@ -18,11 +18,11 @@ class DishSearcher
 
   # serialized search query string
   def search_string
-    [:q, :sort, :per_page, :lat, :lon, :within_dist].map { |key| "#{key.to_s}=#{@search_params[key]}" }.join("&")
+    [:q, :sort, :per_page, :lat, :lng, :within_dist].map { |key| "#{key.to_s}=#{@search_params[key]}" }.join("&")
   end
 
   def geocoded?
-    if @search_params[:lat] && @search_params[:lon]
+    if @search_params[:lat] && @search_params[:lng]
   end
 
   def search_by_dist?
@@ -47,9 +47,9 @@ class DishSearcher
     # within_distance
     search_params[:within_dist] = params[:within_dist].try(:to_f) if !params[:within_dist].blank?
     
-    # lat and lon
+    # latitude and longitude
     search_params[:lat] = params[:lat].try(:to_f) if !params[:lat].blank?
-    search_params[:lon] = params[:lon].try(:to_f) if !params[:lon].blank?
+    search_params[:lng] = params[:lng].try(:to_f) if !params[:lng].blank?
 
     # facet params
     search_params[:facets] = params.permit(:food_preference, :food_type, :cuisine)
@@ -64,7 +64,7 @@ class DishSearcher
       # distance_desc
       {
         _geo_distance: {
-          location: "#{@search_params[:lat]},#{@search_params[:lon]}",
+          location: "#{@search_params[:lat]},#{@search_params[:lng]}",
           order: "asc"
         }
       }
@@ -74,7 +74,7 @@ class DishSearcher
   def where
     where_cond = {}
     if search_by_dist?
-      where_cond = {location: {near: [@search_params[:lat], @search_params[:lon]], within: "#{@search_params[:within_dist]}mi"}}
+      where_cond = {location: {near: [@search_params[:lat], @search_params[:lng]], within: "#{@search_params[:within_dist]}mi"}}
     end
 
     where_cond.merge!(@search_params[:facets])
