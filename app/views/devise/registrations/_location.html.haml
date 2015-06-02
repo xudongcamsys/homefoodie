@@ -15,11 +15,9 @@
 :javascript
   $(document).ready(function() {
     $('#user_location_attributes_is_geocodable').on('change', function() {
+      $('#user_location_attributes_is_visible').prop('checked',this.checked);
       if(this.checked) {
-        $('#user_location_attributes_is_visible').prop('checked',true);
         trackLocation();
-      } else {
-        $('#user_location_attributes_is_visible').prop('checked',false);
       }
     });
   });
