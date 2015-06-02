@@ -1,4 +1,4 @@
-- class_name = (!current_user || current_user == dish.user) ? 'readonly-rating-star' : 'rating-star'
+- class_name = dish.owner?(current_user) ? 'readonly-rating-star' : 'rating-star'
 %div{class: "#{class_name}"}
   = rating_for dish, Dish::RATE_DIMENSION_DISH, :cancel => false, :enable_half => true, :half_show => true
   :javascript

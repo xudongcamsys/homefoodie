@@ -12,7 +12,7 @@ class DishPhotoPolicy < ApplicationPolicy
   private
 
   def own_record?
-    user.present? && user == @record.dish.user
+    user.present? && @record.dish.owner?(user)
   end
 
 end

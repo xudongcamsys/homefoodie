@@ -57,4 +57,8 @@ class Dish < ActiveRecord::Base
     end
   end
 
+  def owner?(a_user)
+    user == a_user
+  end
+
 end

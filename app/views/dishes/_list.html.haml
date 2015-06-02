@@ -20,7 +20,7 @@
             %img{src: "#{dish.dish_photos.first.image.profile.url}"}
       
         %div.col-sm-12{style: 'position:absolute; bottom:0px; padding-bottom:5px;'}
-          - if dish.user == current_user
+          - if dish.owner?(current_user)
             = link_to 'Edit', edit_user_dish_path(dish.user, dish), class: 'btn btn-xs btn-success'
             = link_to 'Destroy', user_dish_path(dish.user, dish), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
 
