@@ -1,7 +1,6 @@
 module Features
   module SearchHelpers
-    def search_reindex(klass_name)
-      klass = klass_name.constantize
+    def search_reindex(klass)
       if klass
         klass.reindex 
         klass.searchkick_index.refresh
