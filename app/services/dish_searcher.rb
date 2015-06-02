@@ -1,5 +1,7 @@
-class DishSearchService
+class DishSearcher
   attr_accessor :search_params 
+
+  DEFAULT_SORTINGs_KEY = 'rating_desc'
 
   def initialize(search_params = {})
     @search_params = parse_params search_params
@@ -16,20 +18,15 @@ class DishSearchService
 
   # serialized search query string
   def search_string
-    "q=#{@search_params[:q]}&" + 
-    "sort=#{@search_params[:sort]}&" + 
-    "per_page=#{@search_params[:per_page]}&" + 
-    "lat=#{@search_params[:lat]}&" + 
-    "lon=#{@search_params[:lon]}&" +
-    "within_dist=#{@search_params[:within_dist]}"
+    [:q, :sort, :per_page, :lat, :lon, :within_dist].map { |key| "#{key.to_s}=#{@search_params[key]}" }.join("&")
   end
 
   def geocoded?
-    true if @search_params[:lat] and @search_params[:lon]
+    if @search_params[:lat] && @search_params[:lon]
   end
 
   def search_by_dist?
-    geocoded? if @search_params[:within_dist]
+    geocoded? && @search_params[:within_dist]
   end
 
   private
@@ -41,7 +38,7 @@ class DishSearchService
     search_params[:q] = params[:q].blank? ? '*' : params[:q]
 
     # sort 
-    search_params[:sort] = params[:sort].blank? ? 'rating_desc' : params[:sort]
+    search_params[:sort] = params[:sort].blank? ? DEFAULT_SORTING_KEY : params[:sort]
 
     # pagination
     search_params[:page] = params[:page]

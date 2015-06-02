@@ -2,11 +2,11 @@ class SearchController < ApplicationController
   include LocationsHelper
 
   def dish
-    dish_search_service = DishSearchService.new(params)
-    @dishes = dish_search_service.search
-    @search_params = dish_search_service.search_params
-    @search_string = dish_search_service.search_string
-    @is_geocoded = dish_search_service.geocoded?
+    dish_searcher = DishSearcher.new(params)
+    @dishes = dish_searcher.search
+    @search_params = dish_searcher.search_params
+    @search_string = dish_searcher.search_string
+    @is_geocoded = dish_searcher.geocoded?
     @facets = @dishes.facets
   end
 end
