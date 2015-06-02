@@ -1,3 +1,4 @@
+require 'geokit'
 class Dish < ActiveRecord::Base
   searchkick callbacks: :async, locations: ["location"]
 
@@ -51,6 +52,14 @@ class Dish < ActiveRecord::Base
       updated_at: updated_at,
       rating: rating
     }
+  end
+
+  # miles between a specific dish and given lat/lng location
+  def distance_to(lat, lon)
+    dish_loc = user.location rescue nil
+    if dish_loc && dish_loc.is_visible
+      Geokit::LatLng.new(lat, lon).distance_to(Geokit::LatLng.new(dish_loc.lat, dish_loc.lng))
+    end
   end
 
 end

@@ -25,7 +25,7 @@
             = link_to 'Destroy', user_dish_path(dish.user, dish), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
 
           - if show_dist
-            - dist = dish_distance(dish, lat, lon)
+            - dist = dish.distance_to(lat, lon)
             - if dist
               %span.pull-right
                 = "#{number_with_delimiter(dist, precision: 2)} mi"

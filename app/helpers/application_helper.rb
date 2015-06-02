@@ -1,5 +1,3 @@
-require 'geokit'
-
 module ApplicationHelper
   def print_error_messages(obj)
     html = '<strong>Please correct the problems below:</strong></br>'
@@ -25,13 +23,5 @@ module ApplicationHelper
 
   def geocodable?(user)
     user && user.location.is_geocodable?
-  end
-
-  # miles between a specific dish and given lat/lng location
-  def dish_distance(dish, lat, lon)
-    dish_loc = dish.user.location rescue nil
-    if dish_loc && dish_loc.is_visible
-      Geokit::LatLng.new(lat, lon).distance_to(Geokit::LatLng.new(dish_loc.lat, dish_loc.lng))
-    end
   end
 end
