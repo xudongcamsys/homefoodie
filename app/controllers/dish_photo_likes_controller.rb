@@ -5,6 +5,7 @@ class DishPhotoLikesController < ApplicationController
   def create
     if @dish_photo and !current_user.likes?(@dish_photo)
       current_user.like!(@dish_photo)
+      @dish_photo.create_activity :like, owner: current_user, recipient: @dish_photo.dish.user
     end
   end
 

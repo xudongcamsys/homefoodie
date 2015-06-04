@@ -5,6 +5,7 @@ class FollowsController < ApplicationController
   def create
     if @user and !current_user.follows?(@user)
       current_user.follow!(@user)
+      current_user.create_activity :follow, owner: current_user, receipt: @user
 
       redirect_to user_profile_path(@user)
     else

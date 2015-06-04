@@ -18,16 +18,20 @@ class Dish < ActiveRecord::Base
   RATE_DIMENSION_DISH = 'dish'
   ratyrate_rateable RATE_DIMENSION_DISH
 
-  def rates
+  # public activity
+  include PublicActivity::Model
+  tracked owner: Proc.new{ |controller, model| controller.current_user }, recipient: Proc.new{ |controller, model| model.try(:user) } 
+
+  def total_rates
     Rate.where(rateable_id: id, dimension: RATE_DIMENSION_DISH)
   end
 
   def raters_count
-    rates.pluck(:rater_id).uniq.count
+    total_rates.pluck(:rater_id).uniq.count
   end
 
   def rating
-    rates.average(:stars) || -1
+    total_rates.average(:stars) || -1
   end
 
   def search_data
