@@ -26,6 +26,10 @@ class Dish < ActiveRecord::Base
     Rate.where(rateable_id: id, dimension: RATE_DIMENSION_DISH)
   end
 
+  def rate_by_user(user)
+    total_rates.where(rater: user).first
+  end
+
   def raters_count
     total_rates.pluck(:rater_id).uniq.count
   end
