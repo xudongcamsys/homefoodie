@@ -5,9 +5,9 @@ class FollowsController < ApplicationController
   def create
     if @user and !current_user.follows?(@user)
       current_user.follow!(@user)
-      current_user.create_activity :follow, owner: current_user, receipt: @user
+      current_user.create_activity :follow, owner: current_user, recipient: @user
 
-      redirect_to user_profile_path(@user)
+      redirect_to :back
     else
     end
   end
@@ -16,7 +16,7 @@ class FollowsController < ApplicationController
     if @user and current_user.follows?(@user)
       current_user.unfollow!(@user)
 
-      redirect_to user_profile_path(@user)
+      redirect_to :back
     else
       flash[:error] = 'Unknown'
     end
