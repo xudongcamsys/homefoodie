@@ -1,1 +1,4 @@
-= render partial: 'profiles/list', locals: {users: @users}
+.col-lg-3
+  = render partial: 'profiles/list', locals: {users: @users, show_follow_button: true}
+.col-lg-9
+  = render_activities(@activities)
