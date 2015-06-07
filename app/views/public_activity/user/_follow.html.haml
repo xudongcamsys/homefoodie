@@ -1,0 +1,11 @@
+- owner = activity.owner
+- recipient = activity.recipient
+
+- if owner && recipient
+  %p
+    = link_to owner.name, user_profile_path(owner)
+    = " started following "
+    = link_to recipient.name, user_profile_path(recipient)
+    %small
+      = time_ago_in_words(activity.created_at)
+      = " ago"
