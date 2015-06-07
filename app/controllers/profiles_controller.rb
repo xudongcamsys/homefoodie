@@ -11,5 +11,7 @@ class ProfilesController < ApplicationController
     @user = User.find(params[:user_id])
     @profile = @user.profile
     authorize @profile
+
+    @activities = PublicActivity::Activity.where(owner: @user)
   end
 end
