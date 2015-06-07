@@ -1,14 +1,15 @@
 %h3
   = 'Profile'
-%p.pull-left
-  = image_tag(@user.avatar.profile.url) if @user.avatar?
-%p
-  = "Name: #{@user.name || '(Not provided)'}"
-%p
-  = "Email: #{@user.email}"
-%p
-  = link_to "Following: #{@user.followees(User).count}", user_followees_path(@user)
-  |
-  = link_to "Followers: #{@user.followers(User).count}", user_followers_path(@user)
-= render partial: 'profiles/follow_button', locals: {user: @user}
-= link_to "Dishes", user_dishes_path(@user), class: 'btn btn-info'
+.col-lg-3
+  %p.pull-left
+    = image_tag(@user.avatar.profile.url) if @user.avatar?
+  %p
+    = "#{@user.name || '(Name not provided)'}"
+  %p
+    = link_to "Following: #{@user.followees(User).count}", user_followees_path(@user)
+    |
+    = link_to "Followers: #{@user.followers(User).count}", user_followers_path(@user)
+  = render partial: 'profiles/follow_button', locals: {user: @user}
+  = link_to "Dishes", user_dishes_path(@user), class: 'btn btn-info'
+.col-lg-9
+  = render_activities(@activities)
