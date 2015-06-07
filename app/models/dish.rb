@@ -20,7 +20,7 @@ class Dish < ActiveRecord::Base
 
   # public activity
   include PublicActivity::Model
-  tracked owner: Proc.new{ |controller, model| controller.current_user }, recipient: Proc.new{ |controller, model| model.try(:user) } 
+  tracked owner: Proc.new{ |controller, model| controller.try(:current_user) }, recipient: Proc.new{ |controller, model| model.try(:user) } 
 
   def total_rates
     Rate.where(rateable_id: id, dimension: RATE_DIMENSION_DISH)
