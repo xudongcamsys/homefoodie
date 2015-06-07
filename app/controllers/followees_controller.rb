@@ -4,6 +4,7 @@ class FolloweesController < ApplicationController
 
   def index
     @users = @user.followees(User)
+    @activities = PublicActivity::Activity.where(owner: @users)
   end
 
   private

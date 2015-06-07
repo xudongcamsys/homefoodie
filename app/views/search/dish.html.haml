@@ -30,7 +30,6 @@
   :javascript
     $(document).ready( function() {
       var locationCallback = function(position) {
-        console.log(position);
         $('#lat').val(position.coords.latitude);
         $('#lng').val(position.coords.longitude);
       };

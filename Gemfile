@@ -66,6 +66,9 @@ gem 'kaminari'
 # geolocation
 gem 'geokit-rails'
 
+# activity seed
+gem 'public_activity'
+
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'

@@ -12,4 +12,7 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+
+  # public activity
+  include PublicActivity::Common
 end

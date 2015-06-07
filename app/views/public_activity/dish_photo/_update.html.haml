@@ -1,0 +1,12 @@
+- owner = activity.owner
+- dish_photo = activity.trackable
+- dish = dish_photo.dish
+- dish_owner = dish.user
+- if owner && dish_photo
+  %p
+    = link_to owner.name, user_profile_path(owner)
+    = " updated dish photo"
+    = link_to dish_photo.title, user_dish_dish_photo_path(dish_owner, dish, dish_photo)
+    %small
+      = time_ago_in_words(activity.created_at)
+      = " ago"

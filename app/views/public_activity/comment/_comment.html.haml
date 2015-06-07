@@ -1,0 +1,14 @@
+- owner = activity.owner
+- comment = activity.trackable
+- dish = activity.recipient
+
+- if owner && comment && dish
+  %p
+    = link_to owner.name, user_profile_path(owner)
+    = " commented dish "
+    = link_to dish.name, user_dish_path(dish.user, dish)
+    %small
+      = time_ago_in_words(activity.created_at)
+      = " ago"
+      %br
+        = comment.comment

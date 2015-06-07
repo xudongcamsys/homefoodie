@@ -1,12 +1,12 @@
-.container
-  .row
-    %h3 Profiles
-    .column
-      %table.table
-        %tbody
-          - users.each do |user|
-            %tr
-              %td
-                = link_to user.name || user.email, user_profile_path(user)
+.col-sm-12
+  %h3 Users
+  .column
+    %table.table
+      %tbody
+        - users.each do |user|
+          %tr
+            %td
+              = link_to user.name || user.email, user_profile_path(user)
+            - if show_follow_button  
               %td
                 = render partial: 'profiles/follow_button', locals: {user: user}

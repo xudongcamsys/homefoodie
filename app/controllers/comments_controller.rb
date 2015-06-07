@@ -7,6 +7,8 @@ class CommentsController < ApplicationController
     authorize @comment
     if !@comment.save!
       flash[:error] = 'There was an error saving the post. Please try again.' 
+    else
+      @comment.create_activity :comment, owner: current_user, recipient: @commentable
     end
   end
 
