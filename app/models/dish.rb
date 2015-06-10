@@ -1,6 +1,8 @@
 require 'geokit'
 
 class Dish < ActiveRecord::Base
+  include PublicActivity::Model
+
   searchkick callbacks: :async, locations: ["location"]
 
   belongs_to :food_preference
@@ -19,7 +21,6 @@ class Dish < ActiveRecord::Base
   ratyrate_rateable RATE_DIMENSION_DISH
 
   # public activity
-  include PublicActivity::Model
   tracked owner: Proc.new{ |controller, model| controller.try(:current_user) }, recipient: Proc.new{ |controller, model| model.try(:user) } 
 
   def total_rates

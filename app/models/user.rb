@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include PublicActivity::Common
+
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
@@ -14,9 +16,6 @@ class User < ActiveRecord::Base
 
   # rater
   ratyrate_rater
-
-  # public activity
-  include PublicActivity::Common
 
   def set_default_role
     self.role ||= :user
