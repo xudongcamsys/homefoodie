@@ -3,8 +3,8 @@ class FolloweesController < ApplicationController
   before_action :get_user
 
   def index
-    @users = @user.followees(User)
-    @activities = PublicActivity::Activity.where(owner: @users)
+    @followees = @user.followees(User)
+    @activities = PublicActivity::Activity.where(owner: @followees)
   end
 
   private

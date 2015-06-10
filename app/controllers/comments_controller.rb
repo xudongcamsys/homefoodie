@@ -5,10 +5,10 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @new_comment = Comment.new
     authorize @comment
-    if !@comment.save!
-      flash[:error] = 'There was an error saving the post. Please try again.' 
-    else
+    if @comment.save!
       @comment.create_activity :comment, owner: current_user, recipient: @commentable
+    else
+      flash[:error] = 'There was an error saving the post. Please try again.' 
     end
   end
 

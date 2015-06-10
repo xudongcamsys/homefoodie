@@ -1,30 +1,22 @@
 class FollowsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :get_user
 
   def create
-    if @user and !current_user.follows?(@user)
-      current_user.follow!(@user)
-      current_user.create_activity :follow, owner: current_user, recipient: @user
-
-      redirect_to :back
-    else
+    @followee = User.find(params[:user_id])
+    if !current_user.follows?(@followee)
+      current_user.follow!(@followee)
+      current_user.create_activity :follow, owner: current_user, recipient: @followee
     end
+
+    redirect_to :back
   end
 
   def destroy
-    if @user and current_user.follows?(@user)
-      current_user.unfollow!(@user)
-
-      redirect_to :back
-    else
-      flash[:error] = 'Unknown'
+    @followee = User.find(params[:user_id])
+    if current_user.follows?(@followee)
+      current_user.unfollow!(@followee)
     end
-  end
 
-  private
-
-  def get_user
-    @user = User.find(params[:user_id]) if !params[:user_id].blank?
+    redirect_to :back
   end
 end

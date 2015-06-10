@@ -3,7 +3,7 @@ class FollowersController < ApplicationController
   before_action :get_user
 
   def index
-    @users = @user.followers(User)
+    @followers = @user.followers(User)
   end
 
   private

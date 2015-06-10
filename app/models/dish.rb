@@ -20,7 +20,7 @@ class Dish < ActiveRecord::Base
   RATE_DIMENSION_DISH = 'dish'
   ratyrate_rateable RATE_DIMENSION_DISH
 
-  # public activity
+  # default activity owner and recipient
   tracked owner: Proc.new{ |controller, model| controller.try(:current_user) }, recipient: Proc.new{ |controller, model| model.try(:user) } 
 
   def total_rates
