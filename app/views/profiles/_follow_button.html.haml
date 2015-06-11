@@ -1,5 +1,5 @@
 - if user.id != current_user.id
   - if !current_user.follows?(user)
     = link_to 'Follow', follows_path(user_id: user.id), method: :post, class: 'btn btn-success'
-  - else
+  - elsif show_unfollow_button
     = link_to 'Unfollow', follows_path(user_id: user.id), method: :delete, class: 'btn btn-success'

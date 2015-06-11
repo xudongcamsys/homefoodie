@@ -7,6 +7,5 @@
           %tr
             %td
               = link_to user.name || user.email, user_profile_path(user)
-            - if show_follow_button  
-              %td
-                = render partial: 'profiles/follow_button', locals: {user: user}
+            %td
+              = render partial: 'profiles/follow_button', locals: {user: user, show_unfollow_button: show_unfollow_button}
