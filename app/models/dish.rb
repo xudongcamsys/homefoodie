@@ -21,7 +21,7 @@ class Dish < ActiveRecord::Base
   ratyrate_rateable RATE_DIMENSION_DISH
 
   # default activity owner and recipient
-  tracked owner: Proc.new{ |controller, model| controller.try(:current_user) }, recipient: Proc.new{ |controller, model| model.try(:user) } 
+  tracked owner: Proc.new { | controller | controller.try(:current_user) }, recipient: :user 
 
   def total_rates
     Rate.where(rateable_id: id, dimension: RATE_DIMENSION_DISH)
