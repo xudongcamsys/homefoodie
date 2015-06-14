@@ -14,16 +14,8 @@ class DishesController < ApplicationController
     authorize @dishes
   end
 
-  def show
-    authorize @dish
-  end
-
   def new
     @dish = Dish.new(user: @user)
-    authorize @dish
-  end
-
-  def edit
     authorize @dish
   end
 
@@ -43,7 +35,6 @@ class DishesController < ApplicationController
   end
 
   def update
-    authorize @dish
     respond_to do |format|
       if @dish.update(dish_params)
         format.html { redirect_to [@user, @dish], notice: 'Dish was successfully updated.' }
@@ -56,7 +47,6 @@ class DishesController < ApplicationController
   end
 
   def destroy
-    authorize @dish
     @dish.destroy
     respond_to do |format|
       format.html { redirect_to user_dishes_url(@user), notice: 'Dish was successfully destroyed.' }
@@ -72,6 +62,7 @@ class DishesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_dish
       @dish = Dish.find(params[:id])
+      authorize @dish
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
