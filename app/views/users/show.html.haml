@@ -2,4 +2,4 @@
   = @user.name || 'User'
 %p
   = "Email: #{@user.email}"
-= render partial: 'profiles/follow_button', locals: {user: @user}
+= render partial: 'profiles/follow_button', locals: {user: @user, show_unfollow_button: true}

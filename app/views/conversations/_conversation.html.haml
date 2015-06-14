@@ -1,6 +1,9 @@
 = content_tag_for(:li, conversation) do |conversation|
   %p
-    = link_to conversation.subject, conversation_path(conversation)
+    = link_to conversation_path(conversation) do
+      = conversation.subject
+      - if conversation.is_unread?(current_user)
+        %i.fa.fa-envelope
     |
     - if conversation.is_completely_trashed?(current_user)
       = link_to 'Untrash', untrash_conversation_path(conversation), method: :post

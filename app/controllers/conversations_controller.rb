@@ -3,17 +3,23 @@ class ConversationsController < ApplicationController
   before_filter :conversation, except: [:index, :new, :create]
 
   def create
-    recipient_emails = conversation_params(:recipients).split(',')
-    recipients = User.where(email: recipient_emails).all
+    recipient_ids = conversation_params[:recipients].split(',')
+    recipients = User.where(id: recipient_ids).all
 
     conversation = current_user.
-      send_message(recipients, *conversation_params(:body, :subject)).conversation
+      send_message(recipients, conversation_params[:body], conversation_params[:subject]).conversation
 
     redirect_to conversation_path(conversation)
   end
 
+  def show
+
+    # mark as read
+    current_user.mark_as_read @conversation
+  end
+
   def reply
-    current_user.reply_to_conversation(conversation, *message_params(:body, :subject))
+    current_user.reply_to_conversation(conversation, message_params[:body], message_params[:subject])
     redirect_to conversation_path(conversation)
   end
 
@@ -37,21 +43,12 @@ class ConversationsController < ApplicationController
     @conversation ||= @mailbox.conversations.find(params[:id])
   end
 
-  def conversation_params(*keys)
-    fetch_params(:conversation, *keys)
+  def conversation_params
+    params.require(:conversation).permit(:recipients, :subject, :body)
   end
 
-  def message_params(*keys)
-    fetch_params(:message, *keys)
+  def message_params
+    params.require(:message).permit(:subject, :body)
   end
 
-  def fetch_params(key, *subkeys)
-    params[key].instance_eval do
-      case subkeys.size
-      when 0 then self
-      when 1 then self[subkeys.first]
-      else subkeys.map{|k| self[k] }
-      end
-    end
-  end
 end

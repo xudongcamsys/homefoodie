@@ -5,5 +5,3 @@
 %ul= render collection: @mailbox.sentbox, partial: 'conversation'
 %h2 Trash
 %ul= render collection: @mailbox.trash, partial: 'conversation'
-
-= link_to 'Start Conversation', :new_conversation
