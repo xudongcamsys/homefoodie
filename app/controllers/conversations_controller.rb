@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
-  before_filter :authenticate_user!
-  helper_method :mailbox, :conversation
+  before_filter :authenticate_user!, :mailbox
+  before_filter :conversation, except: [:index, :new, :create]
 
   def create
     recipient_emails = conversation_params(:recipients).split(',')
@@ -34,7 +34,7 @@ class ConversationsController < ApplicationController
   end
 
   def conversation
-    @conversation ||= mailbox.conversations.find(params[:id])
+    @conversation ||= @mailbox.conversations.find(params[:id])
   end
 
   def conversation_params(*keys)
