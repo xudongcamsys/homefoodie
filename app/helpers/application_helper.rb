@@ -25,7 +25,7 @@ module ApplicationHelper
     user && user.location.is_geocodable?
   end
 
-  def google_map_url coords
+  def gmap_with_coords_url coords
     "http://maps.google.com/maps?z=12&t=m&q=loc:#{coords[0]}+#{coords[1]}"
   end
 end

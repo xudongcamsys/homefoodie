@@ -32,7 +32,7 @@
                   = "#{number_with_delimiter(number_with_precision(dist, precision: 2))} mi"
             - dish_coords = dish.user.visible_location.try(:coords)
             - if dish_coords
-              = link_to 'Map', google_map_url(dish_coords), target: '_blank', class: 'btn btn-xs btn-success'
+              = link_to 'Map', gmap_with_coords_url(dish_coords), target: '_blank', class: 'btn btn-xs btn-success'
 
 / if this is current user's dish index page
 - if user && user == current_user
