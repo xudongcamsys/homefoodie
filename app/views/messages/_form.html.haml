@@ -1,0 +1,6 @@
+= simple_form_for :message, url: reply_conversation_path(conversation) do |f|
+  = f.input :subject
+  = f.input :body
+  .form-actions
+    = f.button :submit, class: 'btn-primary'
+    = submit_tag 'Reset', type: :reset, class: 'btn btn-danger'

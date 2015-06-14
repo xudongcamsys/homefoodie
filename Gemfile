@@ -69,6 +69,9 @@ gem 'geokit-rails'
 # activity seed
 gem 'public_activity'
 
+# messaging
+gem 'mailboxer', github: 'lacco/mailboxer'
+
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
