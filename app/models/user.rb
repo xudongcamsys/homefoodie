@@ -17,6 +17,13 @@ class User < ActiveRecord::Base
   # rater
   ratyrate_rater
 
+  # messaging
+  acts_as_messageable
+
+  def mailboxer_email(object)
+    nil
+  end
+
   def set_default_role
     self.role ||= :user
   end
