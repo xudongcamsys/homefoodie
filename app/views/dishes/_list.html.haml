@@ -24,11 +24,15 @@
             = link_to 'Edit', edit_user_dish_path(dish.user, dish), class: 'btn btn-xs btn-success'
             = link_to 'Destroy', user_dish_path(dish.user, dish), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
 
-          - if show_dist
-            - dist = dish.distance_to(lat, lng)
-            - if dist
-              %span.pull-right
-                = "#{number_with_delimiter(number_with_precision(dist, precision: 2))} mi"
+          .pull-right
+            - if show_dist
+              - dist = dish.distance_to(lat, lng)
+              - if dist
+                %span
+                  = "#{number_with_delimiter(number_with_precision(dist, precision: 2))} mi"
+            - dish_coords = dish.user.visible_location.try(:coords)
+            - if dish_coords
+              = link_to 'Map', google_map_url(dish_coords), target: '_blank', class: 'btn btn-xs btn-success'
 
 / if this is current user's dish index page
 - if user && user == current_user
