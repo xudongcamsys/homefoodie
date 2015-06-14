@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   acts_as_messageable
 
   def mailboxer_email(object)
-    nil
+    email
   end
 
   def set_default_role
