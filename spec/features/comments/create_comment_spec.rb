@@ -12,6 +12,8 @@ feature "user creates comment", js: true do
     fill_in 'comment_comment', with: 'Testing comment'
     click_button 'Create Comment'
 
+    wait_for_ajax
+
     comment = Comment.last
     expect(page).to have_css("#comment-#{comment.id} p", text: "Testing comment")
 
