@@ -72,6 +72,9 @@ gem 'public_activity'
 # messaging
 gem 'mailboxer', github: 'lacco/mailboxer'
 
+# typeahead
+gem 'twitter-typeahead-rails', github: 'camsys/twitter-typeahead-rails'
+
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
@@ -99,4 +102,5 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'puffing-billy'
 end
