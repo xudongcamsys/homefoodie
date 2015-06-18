@@ -1,0 +1,177 @@
+---
+:scope: 
+:url: https://maps.googleapis.com/maps/api/js/AutocompletionService.GetPredictionsJson?1snew%20y&4sen-US&9sgeocode&15e3&callback=_xdc_._gbu0t1&token=75064
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Content-Type: text/javascript; charset=UTF-8
+  Date: Mon, 15 Jun 2015 12:58:15 GMT
+  Expires: Mon, 15 Jun 2015 12:58:15 GMT
+  Cache-Control: private, max-age=300
+  Content-Disposition: attachment
+  Server: mafe
+  X-XSS-Protection: 1; mode=block
+  X-Frame-Options: SAMEORIGIN
+  Alternate-Protocol: 443:quic,p=1
+  Accept-Ranges: none
+  Vary: Accept-Encoding
+  Connection: close
+:content: |-
+  /**/_xdc_._gbu0t1 && _xdc_._gbu0t1( {
+     "predictions" : [
+        {
+           "description" : "New York, NY, United States",
+           "id" : "7eae6a016a9c6f58e2044573fb8f14227b6e1f96",
+           "matched_substrings" : [
+              {
+                 "length" : 5,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJOwg_06VPwokRYv534QaPC8g",
+           "reference" : "CkQzAAAAz29AftDaOnkzwJokOxMAHww9VF5V0t6nnzGXnEVOAW8zNZPMF2_BN7eMYSBClyLwquFWWc4BmBB_j1uWIcDTshIQ13jx8ofxWGMmJ-ZeMsUOaxoUVqXfQF73R2EB7Ce1RM6AxFazhzs",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New York"
+              },
+              {
+                 "offset" : 10,
+                 "value" : "NY"
+              },
+              {
+                 "offset" : 14,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "locality", "political", "geocode" ]
+        },
+        {
+           "description" : "New York Penn Station, New York, NY, United States",
+           "id" : "7e22ca7cd864e48ec343cd87003c6370d4b38d2b",
+           "matched_substrings" : [
+              {
+                 "length" : 5,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJ-bc0FK5ZwokRC8YoJ4wAZD4",
+           "reference" : "CkRAAAAAefmD5BfVkhkg421phCBdN96m-3S8LibinkLESAWfWJgiIydA_vGN_B7XQ2TUFHfW6zX_beiU_sA1SJQMptfeoRIQlwlKhm_BRnXAPTAb83N2mBoUohPo1E08Am7tS3u4YIAM7ifZImQ",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New York Penn Station"
+              },
+              {
+                 "offset" : 23,
+                 "value" : "New York"
+              },
+              {
+                 "offset" : 33,
+                 "value" : "NY"
+              },
+              {
+                 "offset" : 37,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "train_station", "transit_station", "establishment", "geocode" ]
+        },
+        {
+           "description" : "New York Stock Exchange, New York, NY, United States",
+           "id" : "b1f96790bcf1faa3840232c45660adf707318f0c",
+           "matched_substrings" : [
+              {
+                 "length" : 5,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJpxUrJhdawokRR-ejqxUQI0Y",
+           "reference" : "ClRMAAAAqMu6f29hN4XH_z9wnYU60z8l8_VwySgHfun-BUuNH8C_lJ_asxrasbJlFZfnzh-6r4HatYHz5Y0vZPwi61H9uUGObsC2gSzoaAZrCA-cvPISENqMaerQOwBCZY0VuWQKjicaFKTddeZv0PUkF-lAuYAQChjOPZYk",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New York Stock Exchange"
+              },
+              {
+                 "offset" : 25,
+                 "value" : "New York"
+              },
+              {
+                 "offset" : 35,
+                 "value" : "NY"
+              },
+              {
+                 "offset" : 39,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "premise", "geocode" ]
+        },
+        {
+           "description" : "New York Ave, Union City, NJ, United States",
+           "id" : "79f555d6bb769ee06be2371a58ef80cdb985d2cb",
+           "matched_substrings" : [
+              {
+                 "length" : 5,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "EitOZXcgWW9yayBBdmUsIFVuaW9uIENpdHksIE5KLCBVbml0ZWQgU3RhdGVz",
+           "reference" : "CjQvAAAAcHd4cU4cXM0VJFKiMVCnLwfWqlQ067D_39Rwkw6d4R9cjwuszp6W2VsL1DOPLU-NEhDMcnkHL-IB7UeBy4HDL1taGhRRzavdl9YHntF4zysQNCiRnO21xw",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New York Ave"
+              },
+              {
+                 "offset" : 14,
+                 "value" : "Union City"
+              },
+              {
+                 "offset" : 26,
+                 "value" : "NJ"
+              },
+              {
+                 "offset" : 30,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "route", "geocode" ]
+        },
+        {
+           "description" : "New York Times Building, New York, NY, United States",
+           "id" : "1458728413bf338ebb5bef7bac599a60db93351d",
+           "matched_substrings" : [
+              {
+                 "length" : 5,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJL7VqtaxZwokRo55zG29vDhs",
+           "reference" : "ClRMAAAAbs9dIpOtSLpNaaKdBGWyp0wPS_KO8M3HmAHbmT6OPB-pC_HDCNxiXDCH4IMZU0YyVmdhEqrQrIoHQxDrAg9uvLTsQUFPBKveS9u7bbHg_i8SEK_s2JnynpSFTj7KIfmrxkgaFG6gtC_fgH5K9JYxBpJvYcwSoTx4",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New York Times Building"
+              },
+              {
+                 "offset" : 25,
+                 "value" : "New York"
+              },
+              {
+                 "offset" : 35,
+                 "value" : "NY"
+              },
+              {
+                 "offset" : 39,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "premise", "geocode" ]
+        }
+     ],
+     "status" : "OK"
+  }
+   )

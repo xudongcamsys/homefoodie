@@ -1,0 +1,23 @@
+---
+:scope: 
+:url: https://maps.gstatic.com/maps-api-v3/api/js/21/3/places.js
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Vary: Accept-Encoding
+  Content-Type: text/javascript
+  Last-Modified: Tue, 09 Jun 2015 02:27:31 GMT
+  Date: Wed, 10 Jun 2015 02:39:03 GMT
+  Expires: Thu, 09 Jun 2016 02:39:03 GMT
+  X-Content-Type-Options: nosniff
+  Server: sffe
+  X-XSS-Protection: 1; mode=block
+  Cache-Control: public, max-age=31536000
+  Age: '469151'
+  Accept-Ranges: none
+  Connection: close
+:content: google.maps.__gjsload__('places', '\'use strict\';function El(a,b){fg("places_impl",O(function(c){this[Ob](b||{});c.cm(this,a)},this))}Q(El,T);El[H].setTypes=pg("types",Bf(If));El[H].setComponentRestrictions=pg("componentRestrictions");qg(El[H],{place:null,bounds:Ff(wi)});function
+  Fl(){this.j=null;fg("places_impl",O(function(a){this.j=a.pm()},this))}Fl[H].getPlacePredictions=function(a,b){fg("places_impl",O(function(){this.j.getPlacePredictions(a,b)},this))};Fl[H].getPredictions=Fl[H].getPlacePredictions;Fl[H].getQueryPredictions=function(a,b){fg("places_impl",O(function(){this.j.getQueryPredictions(a,b)},this))};function
+  Gl(a){this.j=null;fg("places_impl",O(function(b){this.j=b.em(a)},this))}N=Gl[H];N.getDetails=function(a,b){fg("places_impl",O(function(){this.j.getDetails(a,b)},this))};N.nearbySearch=function(a,b){fg("places_impl",O(function(){this.j.nearbySearch(a,b)},this))};Ma(N,Gl[H].nearbySearch);N.textSearch=function(a,b){fg("places_impl",O(function(){this.j.textSearch(a,b)},this))};N.radarSearch=function(a,b){fg("places_impl",O(function(){this.j.radarSearch(a,b)},this))};function
+  Hl(a,b){fg("places_impl",O(function(c){c.gm(this,a);this[Ob](b||{})},this))}Q(Hl,T);qg(Hl[H],{places:null,bounds:Ff(wi)});Kh.places=function(a){eval(a)};Rd[ad].maps.places={PlacesService:Gl,PlacesServiceStatus:{OK:Gd,UNKNOWN_ERROR:Jd,OVER_QUERY_LIMIT:Hd,REQUEST_DENIED:Id,INVALID_REQUEST:Bd,ZERO_RESULTS:Kd,NOT_FOUND:Fd},AutocompleteService:Fl,Autocomplete:El,SearchBox:Hl,RankBy:{PROMINENCE:0,DISTANCE:1},RatingLevel:{GOOD:0,VERY_GOOD:1,EXCELLENT:2,EXTRAORDINARY:3}};gg("places",{});\n')

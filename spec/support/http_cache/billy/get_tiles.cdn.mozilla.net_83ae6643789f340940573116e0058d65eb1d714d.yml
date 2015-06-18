@@ -1,0 +1,55 @@
+---
+:scope: 
+:url: https://tiles.cdn.mozilla.net/desktop/US/en-US.73505d25fc3706d06b2e98894028d7e105cf4492.json
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Cache-Control: public, max-age=31536000
+  Content-Disposition: inline
+  Content-Type: application/json
+  Date: Mon, 15 Jun 2015 12:57:51 GMT
+  Etag: '"5364c23f04c38fcb7fcb102658a28dd8+gzip+ident"'
+  Last-Modified: Sun, 14 Jun 2015 04:40:44 GMT
+  Server: ECAcc (ewr/14B7)
+  Vary: Accept-Encoding
+  x-amz-id-2: Gm3xSiAN844XGsyoJVGQiYYaC8txq3P4stze7F1zZ337/bFWLCbuBRlP3RqCFtRvUs8OyT1F7wg=
+  x-amz-request-id: 222A1BD53EBFF7B6
+  X-Cache: HIT
+  Content-Length: '4529'
+  Connection: close
+:content: '{"en-US": [{"bgColor": "", "directoryId": 487, "enhancedImageURI": "https://tiles.cdn.mozilla.net/images/d11ba0b3095bb19d8092cd29be9cbb9e197671ea.28088.png",
+  "imageURI": "https://tiles.cdn.mozilla.net/images/1332a68badf11e3f7f69bf7364e79c0a7e2753bc.5316.png",
+  "title": "Mozilla Community", "type": "affiliate", "url": "http://contribute.mozilla.org/"},
+  {"bgColor": "", "directoryId": 1347, "enhancedImageURI": "https://tiles.cdn.mozilla.net/images/9f4b31ffd99b6660fff75a12f179cc1a18bed1f0.21733.png",
+  "imageURI": "https://tiles.cdn.mozilla.net/images/277984a9c8aa11be8bc8e71c740924256132fd8e.21315.png",
+  "title": "Get Firefox for Android", "type": "affiliate", "url": "http://android.www.mozilla.com/firefox/android/?utm_source=directory-tiles&utm_medium=tiles&utm_campaign=sc-2015-fennec&utm_content=phone-in-hand"},
+  {"bgColor": "", "directoryId": 1389, "enhancedImageURI": "https://tiles.cdn.mozilla.net/images/c82f16bd3e2e2abc860f574270902d5b8a8ded84.27423.png",
+  "imageURI": "https://tiles.cdn.mozilla.net/images/aa0bd4e73b09af141863eefb5a35b83519ec61ad.27145.png",
+  "title": "Cars.com", "type": "sponsored", "url": "http://www.cars.com/for-sale/?aff=allweb&cmp=mozilla"},
+  {"bgColor": "", "directoryId": 1348, "enhancedImageURI": "https://tiles.cdn.mozilla.net/images/c05a5dc3261c95f3f83b8cec9ac00f2f3ada25c2.34822.png",
+  "imageURI": "https://tiles.cdn.mozilla.net/images/e82e86a91a6b0533c6afb37c40e87829e2573d66.7409.png",
+  "title": "A Firefox Community Initiative", "type": "affiliate", "url": "https://foxyeah.mozilla.org/?utm_source=directory-tiles&utm_medium=tiles&utm_campaign=sc-2015-foxyeah&utm_content=send-invite"},
+  {"bgColor": "", "directoryId": 955, "enhancedImageURI": "https://tiles.cdn.mozilla.net/images/cc63774b7a9aae02fe36bc5caf90c1e25e66a2bc.13791.png",
+  "imageURI": "https://tiles.cdn.mozilla.net/images/e822cd4628c5162313f49f5d4556f8aafdf38750.11513.png",
+  "title": "Mozilla Manifesto", "type": "affiliate", "url": "https://www.mozilla.org/about/manifesto/"},
+  {"bgColor": "", "directoryId": 1349, "enhancedImageURI": "https://tiles.cdn.mozilla.net/images/4233c7de81a393c230285cd16c44dd6d220ba459.7982.png",
+  "imageURI": "https://tiles.cdn.mozilla.net/images/439c2024ccbeec517560e9c932e05c885bd9f037.6817.png",
+  "title": "Firefox Hello", "type": "affiliate", "url": "https://hello.firefox.com/?utm_source=directory-tiles&utm_medium=tiles&utm_campaign=sc-2015-hello&utm_content=screen-with-faces"},
+  {"bgColor": "", "directoryId": 502, "enhancedImageURI": "https://tiles.cdn.mozilla.net/images/40e5630405d5031ca73393bd7bc0064156f2cc82.10984.png",
+  "imageURI": "https://tiles.cdn.mozilla.net/images/490d42d1f9a76c07739626d1b8a569169aec8fbe.11039.png",
+  "title": "Customize Firefox", "type": "affiliate", "url": "http://fastestfirefox.com/firefox/desktop/customize/"},
+  {"bgColor": "#fff", "directoryId": 956, "imageURI": "https://tiles.cdn.mozilla.net/images/8acf9436e1b315f5f04b9435a518bcd1aef131f8.5663.png",
+  "title": "Mozilla Developer Network", "type": "affiliate", "url": "https://developer.mozilla.org/en-US/?utm_source=mozilla&utm_medium=firefox-tile&utm_campaign=default"},
+  {"bgColor": "", "directoryId": 950, "enhancedImageURI": "https://tiles.cdn.mozilla.net/images/877f1c561e735f7b9f419ff9ac79eb8c7481119d.16744.png",
+  "imageURI": "https://tiles.cdn.mozilla.net/images/25c9fbb07308b84d160fc1b7959364a2c18f93b9.6404.png",
+  "title": "Firefox Marketplace", "type": "affiliate", "url": "https://marketplace.firefox.com/"},
+  {"bgColor": "#3fb58e", "directoryId": 1271, "enhancedImageURI": "https://tiles.cdn.mozilla.net/images/720121e7462d8c7863b4dd8fa7b5c1089b5f5fb2.33862.png",
+  "imageURI": "https://tiles.cdn.mozilla.net/images/583de2b339502a7726bc05736a43b18e9c891350.2193.svg",
+  "title": "Mozilla Webmaker", "type": "affiliate", "url": "https://webmaker.org/?utm_source=directory-tiles&utm_medium=firefox-browser"},
+  {"bgColor": "", "directoryId": 495, "enhancedImageURI": "https://tiles.cdn.mozilla.net/images/d971cbafa0309a201e518acdac4f1ee4dabc7eaa.15109.png",
+  "imageURI": "https://tiles.cdn.mozilla.net/images/b4adc58dd3c02da355104977b910255060cfd6d8.10350.png",
+  "title": "Firefox Sync", "type": "affiliate", "url": "http://mozilla-europe.org/firefox/sync"},
+  {"bgColor": "", "directoryId": 951, "enhancedImageURI": "https://tiles.cdn.mozilla.net/images/22fb856cd58365855eb725b1565f08a72464e039.18717.png",
+  "imageURI": "https://tiles.cdn.mozilla.net/images/068e0ccbd8701a28e2f078c640ee072b9a16e2e1.12490.png",
+  "title": "Privacy Principles", "type": "affiliate", "url": "http://europe.mozilla.org/privacy/you"}]}'

@@ -1,0 +1,22 @@
+---
+:scope: 
+:url: https://maps.googleapis.com/maps/api/js/AuthenticationService.Authenticate?1shttp%3A%2F%2F127.0.0.1%3A62055%2Fusers%2F2%2Fevents%2Fnew&5e1&callback=_xdc_._oznar8&token=53765
+:body: ''
+:status: 403
+:method: get
+:headers:
+  Content-Type: text/plain; charset=UTF-8
+  X-Content-Type-Options: nosniff
+  Date: Thu, 18 Jun 2015 20:47:29 GMT
+  Pragma: no-cache
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+  Cache-Control: no-cache, must-revalidate
+  Server: mafe
+  X-XSS-Protection: 1; mode=block
+  X-Frame-Options: SAMEORIGIN
+  Alternate-Protocol: 443:quic,p=1
+  Accept-Ranges: none
+  Vary: Accept-Encoding
+  Connection: close
+:content: 'The Google Maps JavaScript API must be downloaded directly from Google''s
+  servers. Learn more: https://developers.google.com/maps/documentation/javascript/tutorial#Loading_the_Maps_API'
