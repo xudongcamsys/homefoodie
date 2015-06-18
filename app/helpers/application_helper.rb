@@ -25,6 +25,10 @@ module ApplicationHelper
     user && user.location.is_geocodable?
   end
 
+  def format_distance dist
+    "#{number_with_delimiter(number_with_precision(dist, precision: 2))} mi"
+  end
+
   def gmap_with_coords_url coords
     "https://maps.google.com/maps?z=12&t=m&q=loc:#{coords[0]}+#{coords[1]}"
   end
