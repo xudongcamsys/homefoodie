@@ -1,7 +1,6 @@
-= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"
-
 %input.form-control#address{type:"text", placeholder:"Enter an address"}
 
+= include_gmap_js
 :javascript
   var addressPicker = new AddressPicker();
 
