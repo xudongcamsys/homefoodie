@@ -16,4 +16,5 @@
 //= require bootstrap-sprockets
 //= require jquery.raty
 //= require ratyrate
+//= require twitter/typeahead
 //= require_tree .
