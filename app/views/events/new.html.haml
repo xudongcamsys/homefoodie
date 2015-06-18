@@ -1,0 +1,11 @@
+= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"
+
+%input.form-control#address{type:"text", placeholder:"Enter an address"}
+
+:javascript
+  var addressPicker = new AddressPicker();
+
+  $('#address').typeahead(null, {
+    displayKey: 'description',
+    source: addressPicker.ttAdapter()
+  });
