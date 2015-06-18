@@ -26,6 +26,6 @@ module ApplicationHelper
   end
 
   def gmap_with_coords_url coords
-    "http://maps.google.com/maps?z=12&t=m&q=loc:#{coords[0]}+#{coords[1]}"
+    "https://maps.google.com/maps?z=12&t=m&q=loc:#{coords[0]}+#{coords[1]}"
   end
 end
