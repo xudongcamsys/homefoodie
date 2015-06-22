@@ -51,7 +51,7 @@ class ApplicationPolicy
     end
   end
 
-  private
+  protected
 
   def can_admin?
     user.present? && user.admin?

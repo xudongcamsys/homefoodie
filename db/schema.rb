@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614014207) do
+ActiveRecord::Schema.define(version: 20150622000911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,29 @@ ActiveRecord::Schema.define(version: 20150614014207) do
   add_index "dishes", ["food_preference_id"], name: "index_dishes_on_food_preference_id", using: :btree
   add_index "dishes", ["food_type_id"], name: "index_dishes_on_food_type_id", using: :btree
   add_index "dishes", ["user_id"], name: "index_dishes_on_user_id", using: :btree
+
+  create_table "event_addresses", force: :cascade do |t|
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer  "organizer_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "event_address_id"
+    t.datetime "scheduled_at"
+    t.float    "scheduled_hours"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "max_participant_count"
+  end
+
+  add_index "events", ["event_address_id"], name: "index_events_on_event_address_id", using: :btree
+  add_index "events", ["organizer_id"], name: "index_events_on_organizer_id", using: :btree
 
   create_table "food_preferences", force: :cascade do |t|
     t.string   "name",       null: false
@@ -244,6 +267,16 @@ ActiveRecord::Schema.define(version: 20150614014207) do
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
+  create_table "user_events", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "participant_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "user_events", ["event_id"], name: "index_user_events_on_event_id", using: :btree
+  add_index "user_events", ["participant_id"], name: "index_user_events_on_participant_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -270,6 +303,7 @@ ActiveRecord::Schema.define(version: 20150614014207) do
   add_foreign_key "dishes", "food_preferences"
   add_foreign_key "dishes", "food_types"
   add_foreign_key "dishes", "users"
+  add_foreign_key "events", "event_addresses"
   add_foreign_key "identities", "users"
   add_foreign_key "locations", "users"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
