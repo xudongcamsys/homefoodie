@@ -75,6 +75,9 @@ gem 'mailboxer', github: 'lacco/mailboxer'
 # typeahead
 gem 'twitter-typeahead-rails', github: 'camsys/twitter-typeahead-rails'
 
+# datatables
+gem 'jquery-datatables-rails', '~> 3.3.0'
+
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
