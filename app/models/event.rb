@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
-  has_many :user_events
-  has_many :participants, class_name: 'User', through: :user_events
+  has_many :participated_event_relationships, class_name: 'UserEvent'
+  has_many :participants, class_name: 'User', through: :participated_event_relationships
   belongs_to :organizer, class_name: 'User'
   belongs_to :event_address
 

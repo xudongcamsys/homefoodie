@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   
   has_many :organized_events, class_name: 'Event', foreign_key: 'organizer_id'
   has_many :participated_event_relationships, class_name: 'UserEvent', foreign_key: 'participant_id'
-  has_many :participated_events, through: :participated_event_relationships
+  has_many :participated_events, source: :event, through: :participated_event_relationships
 
 
   mount_uploader :avatar, AvatarUploader
