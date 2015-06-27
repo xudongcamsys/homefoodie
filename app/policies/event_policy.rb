@@ -12,7 +12,7 @@ class EventPolicy < ApplicationPolicy
   protected
 
   def own_record?
-    organizer.present? && record.try(:organizer) == user
+    user.present? && record.try(:organizer) == user
   end
 
 end
