@@ -10,7 +10,9 @@
         %li{class: active_tab == tab ? "active" : ''}
           %a{href:"?type=#{tab}"}
             = label
-
+    - if @user == current_user
+      .col-sm-12
+        = link_to 'Organize Event', new_user_event_path(@user), data: { no_turbolink: true }, class: 'btn btn-primary'
         
   .col-sm-9.col-md-10
     %p.visible-xs

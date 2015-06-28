@@ -1,0 +1,37 @@
+= simple_form_for [current_user, event] do |f|
+  = f.error_notification
+  = f.hidden_field :organizer_id, value: event.organizer.id
+  = f.input :name
+  = f.input :description, as: :text
+  = f.input :scheduled_at, as: :string
+  = f.simple_fields_for :event_address do |addr|
+    = addr.hidden_field :id
+    = addr.hidden_field :lat
+    = addr.hidden_field :lng
+    = addr.input :address
+  = f.input :scheduled_hours
+  = f.input :capacity, label: 'Maximum Count of Participants'
+  = f.input :is_private, as: :boolean
+  = f.button :submit, class: 'btn btn-success'
+
+= include_gmap_js
+
+:javascript
+  var addressPicker = new AddressPicker();
+
+  $('#event_event_address_attributes_address').typeahead(null, {
+    displayKey: 'description',
+    source: addressPicker.ttAdapter()
+  });
+
+  addressPicker.bindDefaultTypeaheadEvent($('#event_event_address_attributes_address'));
+  $(addressPicker).on('addresspicker:selected', function(e, result){
+    $('#event_event_address_attributes_lat').val(result.lat());
+    $('#event_event_address_attributes_lng').val(result.lng());
+  });
+
+  $('#event_scheduled_at').datetimepicker({
+    defaultDate: new Date(),
+    minDate: new Date(),
+    format: 'MM/DD/YYYY h:mm A'
+  });

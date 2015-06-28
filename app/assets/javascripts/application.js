@@ -19,4 +19,6 @@
 //= require jquery.raty
 //= require ratyrate
 //= require twitter/typeahead
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .

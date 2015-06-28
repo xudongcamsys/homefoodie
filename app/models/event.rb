@@ -7,11 +7,15 @@ class Event < ActiveRecord::Base
   belongs_to :event_address
 
   delegate :name, to: :organizer, prefix: :organizer
+  delegate :address, to: :event_address
+  delegate :coords, to: :event_address
 
   validates :organizer, presence: true
   validates :name, presence: true
   validates :event_address, presence: true
   validates :scheduled_at, presence: true
+  validates :scheduled_hours, numericality: {greater_than_or_equal_to: 0}, allow_nil: true
+  validates :capacity, numericality: {greater_than_or_equal_to: 0, only_interger: true}, allow_nil: true
 
   scope :public_only, -> { where(is_private: false) }
   scope :today, -> { where("scheduled_at >= ? and scheduled_at <= ?", Date.today.beginning_of_day, Date.today.end_of_day) }
@@ -30,6 +34,10 @@ class Event < ActiveRecord::Base
 
   def is_organized_by?(a_user)
     organizer == a_user
+  end
+
+  def formatted_scheduled_time
+    scheduled_at.to_formatted_s(:long)
   end
 
   private

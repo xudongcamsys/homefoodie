@@ -78,6 +78,13 @@ gem 'twitter-typeahead-rails', github: 'camsys/twitter-typeahead-rails'
 # datatables
 gem 'jquery-datatables-rails', '~> 3.3.0'
 
+# datetime picker
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
+
+# datetime parser
+gem 'chronic'
+
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'

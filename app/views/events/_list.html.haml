@@ -13,13 +13,14 @@
   %tbody
     - events.each do |event|
       %tr
-        %td= event.name
+        %td
+          = link_to "#{event.name}", user_event_path(event.organizer, event)
         %td= event.description
         %td= event.organizer_name
-        %td= event.scheduled_at
+        %td= event.formatted_scheduled_time
         %td
           - if event.is_organized_by?(current_user)
-            = link_to (raw "<i class='fa fa-edit'></i>"), edit_user_event_path(current_user, event), class: 'btn btn-xs btn-success'
+            = link_to (raw "<i class='fa fa-edit'></i>"), edit_user_event_path(current_user, event), data: { no_turbolink: true }, class: 'btn btn-xs btn-success'
             = link_to (raw "<i class='fa fa-remove'></i>"), user_event_path(current_user, event), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
 :javascript
   $('#events_table').dataTable();

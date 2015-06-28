@@ -21,11 +21,13 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new(organizer: @user)
+    @event.event_address = EventAddress.new
     authorize @event
   end
 
   def create
     @event = Event.new(event_params)
+    @event.scheduled_at = parse_scheduled_at
     authorize @event
 
     respond_to do |format|
@@ -39,9 +41,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
     respond_to do |format|
-      if @event.update(event_params)
+      if @event.update(event_params.clone.merge(scheduled_at: parse_scheduled_at))
         format.html { redirect_to [@user, @event], notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
@@ -72,8 +77,13 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :description, :max_participant_count, :scheduled_at, :scheduled_hours, 
+      params.require(:event).permit(:organizer_id, :name, :description, :capacity, :scheduled_at, :scheduled_hours, :is_private,
         { event_address_attributes:
-          [ :lat, :lng, :address, :id ] }).merge(organizer_id: @user.id)
+          [ :lat, :lng, :address, :id ] })
+    end
+
+    # datetime param causes trouble when create&update an event
+    def parse_scheduled_at
+      Chronic.parse(event_params[:scheduled_at])
     end
 end
