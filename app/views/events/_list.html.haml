@@ -1,0 +1,25 @@
+%table.table.table-condensed.table-striped.table-bordered.table-hover#events_table
+  %thead
+    %tr
+      %th
+        Name
+      %th
+        Description
+      %th
+        Organizer
+      %th
+        When
+      %th
+  %tbody
+    - events.each do |event|
+      %tr
+        %td= event.name
+        %td= event.description
+        %td= event.organizer_name
+        %td= event.scheduled_at
+        %td
+          - if event.is_organized_by?(current_user)
+            = link_to (raw "<i class='fa fa-edit'></i>"), edit_user_event_path(current_user, event), class: 'btn btn-xs btn-success'
+            = link_to (raw "<i class='fa fa-remove'></i>"), user_event_path(current_user, event), :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-xs btn-danger'
+:javascript
+  $('#events_table').dataTable();
