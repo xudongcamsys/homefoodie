@@ -1,7 +1,7 @@
 - edit_tabs = {"today" => "Today's Event", "upcoming" => 'Upcoming Events', "past" => 'Past Events'}
 
 - active_tab = edit_tabs.keys.index(params[:type]) ? params[:type] : "today"
-- active_tab_title = edit_tabs[active_tab]
+- active_tab_title = edit_tabs[active_tab] + " for #{@user.name}"
 
 .row.row-offcanvas.row-offcanvas-left
   .col-sm-3.col-md-2.sidebar-offcanvas#sidebar{role: 'navigation'}

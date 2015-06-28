@@ -36,6 +36,10 @@ class Event < ActiveRecord::Base
     organizer == a_user
   end
 
+  def is_participated_by?(a_user)
+    a_user && participants.exists?(a_user.id)
+  end
+
   def formatted_scheduled_time
     scheduled_at.to_formatted_s(:long)
   end
