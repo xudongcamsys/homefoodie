@@ -14,7 +14,7 @@
     - events.each do |event|
       %tr
         %td
-          = link_to "#{event.name}", user_event_path(event.organizer, event)
+          = link_to "#{event.name}", data: { no_turbolink: true }, user_event_path(event.organizer, event)
         %td= event.description
         %td= event.organizer_name
         %td= event.formatted_scheduled_time
