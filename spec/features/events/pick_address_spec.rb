@@ -7,9 +7,9 @@ feature "Pick event addresss", js: true do
 
     visit new_user_event_path(user)
 
-    fill_in "address", with: "new york"
+    fill_in "Address", with: "new york"
 
-    expect(page).to have_field("address", with: "new york, NY, United States")
+    expect(page).to have_content("New York, NY, United States")
   end
 
 end

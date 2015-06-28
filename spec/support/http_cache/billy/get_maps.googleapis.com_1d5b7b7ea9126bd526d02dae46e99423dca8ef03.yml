@@ -1,0 +1,173 @@
+---
+:scope: 
+:url: https://maps.googleapis.com/maps/api/js/AutocompletionService.GetPredictionsJson?1sne&4sen-US&9sgeocode&15e3&callback=_xdc_._jl8ug1&token=56421
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Content-Type: text/javascript; charset=UTF-8
+  Date: Sun, 28 Jun 2015 22:09:06 GMT
+  Expires: Sun, 28 Jun 2015 22:09:06 GMT
+  Cache-Control: private, max-age=300
+  Content-Disposition: attachment
+  Server: mafe
+  X-XSS-Protection: 1; mode=block
+  X-Frame-Options: SAMEORIGIN
+  Alternate-Protocol: 443:quic,p=1
+  Accept-Ranges: none
+  Vary: Accept-Encoding
+  Connection: close
+:content: |-
+  /**/_xdc_._jl8ug1 && _xdc_._jl8ug1( {
+     "predictions" : [
+        {
+           "description" : "New York, NY, United States",
+           "id" : "7eae6a016a9c6f58e2044573fb8f14227b6e1f96",
+           "matched_substrings" : [
+              {
+                 "length" : 2,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJOwg_06VPwokRYv534QaPC8g",
+           "reference" : "CkQzAAAArk62YAA5y5B3wSvWT4TIMSa8a7wsm-4A_BwAOiTZnMYpC7BsGTWW7xmY8-hH2C8mtdrz2Hrj3e6DvY1HBvGvQxIQ9lWwQsolPEa29Ot1NNRBgBoUuF8czukPMv39Mu3xhbU5dftdy8k",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New York"
+              },
+              {
+                 "offset" : 10,
+                 "value" : "NY"
+              },
+              {
+                 "offset" : 14,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "locality", "political", "geocode" ]
+        },
+        {
+           "description" : "New York County, NY, United States",
+           "id" : "5ea7a59498dbfe5e165c5f8c61cad70bad1c863a",
+           "matched_substrings" : [
+              {
+                 "length" : 2,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJOwE7_GTtwokRFq0uOwLSE9g",
+           "reference" : "CkQ6AAAAIDInC7mjA7jGlHQGCde2j8LxUlhPFsDVvhzqNW9kut6l_mafGfQHMw0vM43GvuDPusluwQLxtD1cbX9EXEnNLRIQBj9AggkIKC9hDcMi87nTDxoUGfLfXkh-ql4mXmgxUH3BBfyaWb0",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New York County"
+              },
+              {
+                 "offset" : 17,
+                 "value" : "NY"
+              },
+              {
+                 "offset" : 21,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "administrative_area_level_2", "political", "geocode" ]
+        },
+        {
+           "description" : "Newark, NJ, United States",
+           "id" : "c71040d6268e495203b4ca7ca4299893601f63fc",
+           "matched_substrings" : [
+              {
+                 "length" : 2,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJHQ6aMnBTwokRc-T-3CrcvOE",
+           "reference" : "CkQxAAAA9TCRtD2-4cE1KO_YqgQ171pMhx9bbzksx-3DDQ5CyM81D3x8aGdAnqKNH3V7KLSCWsvyNvE04GA80B9wlByYkhIQCUQfi2c9XrvNL98X-DNjxxoUnfx_jbtrVilRTmXLJqhXgNlooFM",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "Newark"
+              },
+              {
+                 "offset" : 8,
+                 "value" : "NJ"
+              },
+              {
+                 "offset" : 12,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "locality", "political", "geocode" ]
+        },
+        {
+           "description" : "New York Penn Station, New York, NY, United States",
+           "id" : "7e22ca7cd864e48ec343cd87003c6370d4b38d2b",
+           "matched_substrings" : [
+              {
+                 "length" : 2,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJ-bc0FK5ZwokRC8YoJ4wAZD4",
+           "reference" : "CkRAAAAAyelTRFBwaXYCFJIx3dAisgxWJjHuHkCUPfKoTH7KFzTkOzAJxZhqv2eSPi_MtqN-0w6mahpzzFtQsE7dqUUqWRIQXyO2veQWh5o0Wh-YzoanPhoU5-JPFj57K_NbRoHZobDBakZHBts",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New York Penn Station"
+              },
+              {
+                 "offset" : 23,
+                 "value" : "New York"
+              },
+              {
+                 "offset" : 33,
+                 "value" : "NY"
+              },
+              {
+                 "offset" : 37,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "train_station", "transit_station", "establishment", "geocode" ]
+        },
+        {
+           "description" : "Newark Liberty International Airport, Brewster Road, Newark, NJ, United States",
+           "id" : "8d57add005d7717b94e463fe24b9825cdd909afc",
+           "matched_substrings" : [
+              {
+                 "length" : 2,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJ7wzsxeFSwokRhvLXxTe087M",
+           "reference" : "CmRdAAAALqq-wWFj6aZ_HQIDRlcAYiFR1bpyidzUUZJkeigBD__JT3JI-Z1PXxZUVRW1tcZVkzUxZR3nKlXZhrkiKW5LkgJJ5id8ZFWl0RslSQy85MTSYCpStqYgEbAhNkXHqJENEhBNbwBoK5MqWyA_3q6_w4x-GhQRxhOCPvd0lBoJpbpvCKBPo3OiSQ",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "Newark Liberty International Airport"
+              },
+              {
+                 "offset" : 38,
+                 "value" : "Brewster Road"
+              },
+              {
+                 "offset" : 53,
+                 "value" : "Newark"
+              },
+              {
+                 "offset" : 61,
+                 "value" : "NJ"
+              },
+              {
+                 "offset" : 65,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "geocode" ]
+        }
+     ],
+     "status" : "OK"
+  }
+   )

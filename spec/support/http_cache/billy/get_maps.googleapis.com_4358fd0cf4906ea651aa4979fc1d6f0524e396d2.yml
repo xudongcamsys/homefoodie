@@ -1,0 +1,21 @@
+---
+:scope: 
+:url: https://maps.googleapis.com/maps/api/js/AuthenticationService.Authenticate?1shttp%3A%2F%2F127.0.0.1%3A62999%2Fusers%2F1%2Fevents%2Fnew&5e1&callback=_xdc_._omvdj7&token=11810
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Content-Type: text/javascript; charset=UTF-8
+  Date: Sun, 28 Jun 2015 22:10:03 GMT
+  Pragma: no-cache
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+  Cache-Control: no-cache, must-revalidate
+  Content-Disposition: attachment
+  Server: mafe
+  X-XSS-Protection: 1; mode=block
+  X-Frame-Options: SAMEORIGIN
+  Alternate-Protocol: 443:quic,p=1
+  Accept-Ranges: none
+  Vary: Accept-Encoding
+  Connection: close
+:content: "/**/_xdc_._omvdj7 && _xdc_._omvdj7( [1,null,0] )"

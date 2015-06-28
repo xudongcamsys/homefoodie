@@ -1,0 +1,173 @@
+---
+:scope: 
+:url: https://maps.googleapis.com/maps/api/js/AutocompletionService.GetPredictionsJson?1snew%20yor&4sen-US&9sgeocode&15e3&callback=_xdc_._s2ewqz&token=126755
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Content-Type: text/javascript; charset=UTF-8
+  Date: Sun, 28 Jun 2015 22:09:07 GMT
+  Expires: Sun, 28 Jun 2015 22:09:07 GMT
+  Cache-Control: private, max-age=300
+  Content-Disposition: attachment
+  Server: mafe
+  X-XSS-Protection: 1; mode=block
+  X-Frame-Options: SAMEORIGIN
+  Alternate-Protocol: 443:quic,p=1
+  Accept-Ranges: none
+  Vary: Accept-Encoding
+  Connection: close
+:content: |-
+  /**/_xdc_._s2ewqz && _xdc_._s2ewqz( {
+     "predictions" : [
+        {
+           "description" : "New York, NY, United States",
+           "id" : "7eae6a016a9c6f58e2044573fb8f14227b6e1f96",
+           "matched_substrings" : [
+              {
+                 "length" : 7,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJOwg_06VPwokRYv534QaPC8g",
+           "reference" : "CkQzAAAA7-OasjKus6mz1FUbdQP9daHxJB0Ho4ZhSQRw5OjOxFjONvt9mpkmDNhejsOjbENAap-p4MP8a_d3QbrFeUCN-BIQIX2RV7Q_WwCPbUW2GmN0gRoUBg4pyfqLeZr-0pBXciCwHLnnGnM",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New York"
+              },
+              {
+                 "offset" : 10,
+                 "value" : "NY"
+              },
+              {
+                 "offset" : 14,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "locality", "political", "geocode" ]
+        },
+        {
+           "description" : "New York County, NY, United States",
+           "id" : "5ea7a59498dbfe5e165c5f8c61cad70bad1c863a",
+           "matched_substrings" : [
+              {
+                 "length" : 7,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJOwE7_GTtwokRFq0uOwLSE9g",
+           "reference" : "CkQ6AAAAdtees_PN7Xs1L9kiM_RajwDfx9lO9dB616cDTCkPqBHrpONRVQJwWCYTrT8EE18bv8kRnnJ5AXzGcTxASWO6mhIQVpbwlw35hCMTSWaZzyKOVxoUOJYALpw0lcf82GUE4N8OBSwezeE",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New York County"
+              },
+              {
+                 "offset" : 17,
+                 "value" : "NY"
+              },
+              {
+                 "offset" : 21,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "administrative_area_level_2", "political", "geocode" ]
+        },
+        {
+           "description" : "New York Penn Station, New York, NY, United States",
+           "id" : "7e22ca7cd864e48ec343cd87003c6370d4b38d2b",
+           "matched_substrings" : [
+              {
+                 "length" : 7,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJ-bc0FK5ZwokRC8YoJ4wAZD4",
+           "reference" : "CkRAAAAAzQnUaVKSyXvHGXKpx28_ZlSVY7NaxSZ5GD_HfbcdYc30iKwA7elC8ElTkKvXD1fYh9dPXBMAe8zPKrvwAfV7gBIQIi0oGzmY0tgZVF-kQcstSRoU9KNPi2Y5KOiWXe590TcXcysCsMA",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New York Penn Station"
+              },
+              {
+                 "offset" : 23,
+                 "value" : "New York"
+              },
+              {
+                 "offset" : 33,
+                 "value" : "NY"
+              },
+              {
+                 "offset" : 37,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "train_station", "transit_station", "establishment", "geocode" ]
+        },
+        {
+           "description" : "Manhattan, New York, NY, United States",
+           "id" : "476d37be9512ae1c37df40b54d55c5a911a413f1",
+           "matched_substrings" : [
+              {
+                 "length" : 9,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJYeZuBI9YwokRjMDs_IEyCwo",
+           "reference" : "CkQ-AAAA3-NCofp-v79BwZqxyOLzNckAlX6nRpJC5dot07UilvIovKY1dbuqqw11w9mlav_rsGG36I0g8a_Duu4Ph88kqRIQ2pfJXr4SQOer1jYg1rD9zBoUlTbNwLkJiXZSyHG0YoVTxECWB1c",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "Manhattan"
+              },
+              {
+                 "offset" : 11,
+                 "value" : "New York"
+              },
+              {
+                 "offset" : 21,
+                 "value" : "NY"
+              },
+              {
+                 "offset" : 25,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "sublocality_level_1", "sublocality", "political", "geocode" ]
+        },
+        {
+           "description" : "New York Stock Exchange, New York, NY, United States",
+           "id" : "b1f96790bcf1faa3840232c45660adf707318f0c",
+           "matched_substrings" : [
+              {
+                 "length" : 7,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJpxUrJhdawokRR-ejqxUQI0Y",
+           "reference" : "ClRMAAAAyelUxa6PiT86mNmUdM5B_ZlF_IWSLW8IM6aXIm9hUluDZB_A6GiFVihBId3W9bXCRIpASZOx8ZOImofT4SKfJjbclj9hTxSO0ATxzqrsNpYSEBPZTX1lvvXACwP3qtoagWYaFDeetErmrXfzyenSfWzSt6u6-mhS",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New York Stock Exchange"
+              },
+              {
+                 "offset" : 25,
+                 "value" : "New York"
+              },
+              {
+                 "offset" : 35,
+                 "value" : "NY"
+              },
+              {
+                 "offset" : 39,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "premise", "geocode" ]
+        }
+     ],
+     "status" : "OK"
+  }
+   )

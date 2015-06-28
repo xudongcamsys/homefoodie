@@ -1,0 +1,13 @@
+---
+:scope: 
+:url: https://tiles.services.mozilla.com/v2/links/fetch/en-US
+:body: ''
+:status: 303
+:method: get
+:headers:
+  Content-Type: text/html; charset=utf-8
+  Date: Sun, 28 Jun 2015 22:00:09 GMT
+  Location: https://tiles.cdn.mozilla.net/desktop/US/en-US.4a132d28b3f53f9b025ece4ae4d7f22357a0fa08.json
+  Content-Length: '0'
+  Connection: close
+:content: ''

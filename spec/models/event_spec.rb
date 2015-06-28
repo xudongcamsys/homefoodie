@@ -9,7 +9,7 @@ RSpec.describe Event, type: :model do
       organizer = create(:user, name: 'event organizer')
       first_participant = create(:user, name: 'first participant')
       second_participant = create(:user, name: 'second participant')
-      event = create(:event, organizer: organizer)
+      event = create(:event, organizer: organizer, event_address: create(:event_address))
       create(:user_event, event: event, participant: first_participant) 
       create(:user_event, event: event, participant: second_participant) 
 
@@ -23,7 +23,7 @@ RSpec.describe Event, type: :model do
       organizer = create(:user, name: 'event organizer')
       first_participant = create(:user, name: 'first participant')
       second_participant = create(:user, name: 'second participant')
-      event = create(:event, organizer: organizer)
+      event = create(:event, organizer: organizer, event_address: create(:event_address))
       create(:user_event, event: event, participant: first_participant) 
       create(:user_event, event: event, participant: second_participant) 
 
@@ -36,8 +36,8 @@ RSpec.describe Event, type: :model do
       first_organizer = create(:user, name: 'organizer one')
       second_organizer = create(:user, name: 'organizer two')
 
-      organizer_only_event = create(:event, organizer: first_organizer)
-      second_event = create(:event, organizer: second_organizer)
+      organizer_only_event = create(:event, organizer: first_organizer, event_address: create(:event_address))
+      second_event = create(:event, organizer: second_organizer, event_address: create(:event_address))
       
       create(:user_event, event: second_event, participant: first_organizer) 
 
@@ -51,7 +51,7 @@ RSpec.describe Event, type: :model do
       organizer = create(:user, name: 'event organizer')
       first_participant = create(:user, name: 'first participant')
       second_participant = create(:user, name: 'second participant')
-      event = create(:event, organizer: organizer)
+      event = create(:event, organizer: organizer, event_address: create(:event_address))
       create(:user_event, event: event, participant: first_participant) 
       create(:user_event, event: event, participant: second_participant) 
 
@@ -65,7 +65,7 @@ RSpec.describe Event, type: :model do
       organizer = create(:user, name: 'event organizer')
       first_participant = create(:user, name: 'first participant')
       second_participant = create(:user, name: 'second participant')
-      event = create(:event, organizer: organizer)
+      event = create(:event, organizer: organizer, event_address: create(:event_address))
       create(:user_event, event: event, participant: first_participant) 
       create(:user_event, event: event, participant: second_participant) 
 

@@ -1,0 +1,157 @@
+---
+:scope: 
+:url: https://maps.googleapis.com/maps/api/js/AutocompletionService.GetPredictionsJson?1sn&4sen-US&9sgeocode&15e3&callback=_xdc_._7ehmho&token=66792
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Content-Type: text/javascript; charset=UTF-8
+  Date: Sun, 28 Jun 2015 22:09:06 GMT
+  Expires: Sun, 28 Jun 2015 22:09:06 GMT
+  Cache-Control: private, max-age=300
+  Content-Disposition: attachment
+  Server: mafe
+  X-XSS-Protection: 1; mode=block
+  X-Frame-Options: SAMEORIGIN
+  Alternate-Protocol: 443:quic,p=1
+  Accept-Ranges: none
+  Vary: Accept-Encoding
+  Connection: close
+:content: |-
+  /**/_xdc_._7ehmho && _xdc_._7ehmho( {
+     "predictions" : [
+        {
+           "description" : "New York, NY, United States",
+           "id" : "7eae6a016a9c6f58e2044573fb8f14227b6e1f96",
+           "matched_substrings" : [
+              {
+                 "length" : 1,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJOwg_06VPwokRYv534QaPC8g",
+           "reference" : "CkQzAAAACrrIxNO69C3p6h94fJoF6_8PUYkq6f1SjnvJy12XS9TtG8DxfO5GRY7LYSHeJ-FbxHd_2mqVvZ63muKtX8xu3hIQM4QMO4qOJ5P9RAfiBB955xoUBdvTRDqBUMouBVHAnHfLQtXMPas",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New York"
+              },
+              {
+                 "offset" : 10,
+                 "value" : "NY"
+              },
+              {
+                 "offset" : 14,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "locality", "political", "geocode" ]
+        },
+        {
+           "description" : "New York County, NY, United States",
+           "id" : "5ea7a59498dbfe5e165c5f8c61cad70bad1c863a",
+           "matched_substrings" : [
+              {
+                 "length" : 1,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJOwE7_GTtwokRFq0uOwLSE9g",
+           "reference" : "CkQ6AAAANgr8mxirPkyI834hejGWz98RzrRWK8nxBKI8BJRDhDr_d3zhwUvg4cKr6eKRtwKZHpWY8VL39Lont1wWScSXZhIQxlp8OjDIuUlXg2HHRXBEBBoUY0n-9h16LBuvoNFLgMqUT0da1nw",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New York County"
+              },
+              {
+                 "offset" : 17,
+                 "value" : "NY"
+              },
+              {
+                 "offset" : 21,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "administrative_area_level_2", "political", "geocode" ]
+        },
+        {
+           "description" : "North Bergen, NJ, United States",
+           "id" : "ecdd7fa2d988b74f380bafc6a137a67f3e37a2ca",
+           "matched_substrings" : [
+              {
+                 "length" : 1,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJVzsp1ARYwokRgZOfuykm_l4",
+           "reference" : "CkQ3AAAAvrb05at-BXrXiQM0d8J3BaJAeCvS6uPCmyfdFBcH0yqk3pyxeEB1G86rb9AzkxplikuloH3EegFDGQqWeSxb-RIQLRf4iRdJUSKmpjm4gnQuGxoUEL66LElYlot86J9UHkjCYZCoBlU",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "North Bergen"
+              },
+              {
+                 "offset" : 14,
+                 "value" : "NJ"
+              },
+              {
+                 "offset" : 18,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "locality", "political", "geocode" ]
+        },
+        {
+           "description" : "Newark, NJ, United States",
+           "id" : "c71040d6268e495203b4ca7ca4299893601f63fc",
+           "matched_substrings" : [
+              {
+                 "length" : 1,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJHQ6aMnBTwokRc-T-3CrcvOE",
+           "reference" : "CkQxAAAAALnFU5CTiM44AHeLdp-3J357xEKLBCg0DhmT8T62iT8LP7MGj7poVM9wQF0PhAcfWVa6IjM71seTXy1sO3dIUxIQIlRjYAkvv5Oh0lXrDDiU7BoUeSJwhPxDxrOaK7z5mfQWVCLVVpI",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "Newark"
+              },
+              {
+                 "offset" : 8,
+                 "value" : "NJ"
+              },
+              {
+                 "offset" : 12,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "locality", "political", "geocode" ]
+        },
+        {
+           "description" : "New Jersey, United States",
+           "id" : "10806aba84cf3520ebd83c6a3f749bad23c4e2e6",
+           "matched_substrings" : [
+              {
+                 "length" : 1,
+                 "offset" : 0
+              }
+           ],
+           "place_id" : "ChIJn0AAnpX7wIkRjW0_-Ad70iw",
+           "reference" : "CkQxAAAAmxxkauk9TbY4HnpEQ0IK_RgtdqAeNcCWt9AsrH8XPUrkj8i5JKceor5Iwcs220yXPmbYPCcFGfkk9LDU2NZJ7hIQQ6GfdQF17-7UY9xhvGM45xoUbZbxOJYA_C2ANFYa1flJj4zC_9Y",
+           "terms" : [
+              {
+                 "offset" : 0,
+                 "value" : "New Jersey"
+              },
+              {
+                 "offset" : 12,
+                 "value" : "United States"
+              }
+           ],
+           "types" : [ "administrative_area_level_1", "political", "geocode" ]
+        }
+     ],
+     "status" : "OK"
+  }
+   )
