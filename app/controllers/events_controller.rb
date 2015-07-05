@@ -41,6 +41,10 @@ class EventsController < ApplicationController
   def edit
   end
 
+  def show
+    @booking = Booking.where(event: @event, applicant: current_user).first if current_user
+  end
+
   def update
     respond_to do |format|
       if @event.update(event_params)

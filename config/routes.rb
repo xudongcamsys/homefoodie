@@ -29,6 +29,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :bookings, only: [:index, :create, :destroy] do 
+    post :accept
+  end
+
   get 'dish_search', to: 'search#dish'
 
   resource :location, only: [:update]

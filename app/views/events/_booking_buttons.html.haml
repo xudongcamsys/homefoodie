@@ -1,0 +1,4 @@
+- if @event.is_bookable_by?(current_user)
+  = link_to 'Book', bookings_path(event_id: @event.id, applicant_id: current_user.id), method: :post, class: 'btn btn-success'
+- elsif @event.is_unbookable_by?(current_user)
+  = link_to 'Unbook', booking_path(@booking), method: :delete, class: 'btn btn-success'

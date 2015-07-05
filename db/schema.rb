@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628155441) do
+ActiveRecord::Schema.define(version: 20150705204055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 20150628155441) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "applicant_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "bookings", ["applicant_id"], name: "index_bookings_on_applicant_id", using: :btree
+  add_index "bookings", ["event_id"], name: "index_bookings_on_event_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.string   "title",            limit: 50, default: ""
@@ -134,6 +144,16 @@ ActiveRecord::Schema.define(version: 20150628155441) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
+
+  create_table "invites", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "invitee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "invites", ["event_id"], name: "index_invites_on_event_id", using: :btree
+  add_index "invites", ["invitee_id"], name: "index_invites_on_invitee_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.integer  "user_id"

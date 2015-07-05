@@ -1,0 +1,19 @@
+%table.table.table-condensed.table-striped.table-bordered.table-hover#bookings_table
+  %thead
+    %tr
+      %th
+        Applicant
+      %th
+        When
+      %th
+  %tbody
+    - @bookings.each do |booking|
+      - applicant = booking.applicant
+      %tr
+        %td
+          = link_to "#{applicant.display_name}", user_profile_path(applicant), data: { no_turbolink: true }
+        %td= booking.formatted_booking_time
+        %td
+          = link_to 'Accept', booking_accept_path(booking), data: { no_turbolink: true }, method: :post, class: 'btn btn-xs btn-success'
+:javascript
+  $('#bookings_table').dataTable();
