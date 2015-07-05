@@ -17,21 +17,23 @@
 = include_gmap_js
 
 :javascript
-  var addressPicker = new AddressPicker();
+  (function(){
+    var addressPicker = new AddressPicker();
 
-  $('#event_event_address_attributes_address').typeahead(null, {
-    displayKey: 'description',
-    source: addressPicker.ttAdapter()
-  });
+    $('#event_event_address_attributes_address').typeahead(null, {
+      displayKey: 'description',
+      source: addressPicker.ttAdapter()
+    });
 
-  addressPicker.bindDefaultTypeaheadEvent($('#event_event_address_attributes_address'));
-  $(addressPicker).on('addresspicker:selected', function(e, result){
-    $('#event_event_address_attributes_lat').val(result.lat());
-    $('#event_event_address_attributes_lng').val(result.lng());
-  });
+    addressPicker.bindDefaultTypeaheadEvent($('#event_event_address_attributes_address'));
+    $(addressPicker).on('addresspicker:selected', function(e, result){
+      $('#event_event_address_attributes_lat').val(result.lat());
+      $('#event_event_address_attributes_lng').val(result.lng());
+    });
 
-  $('#event_scheduled_at').datetimepicker({
-    defaultDate: new Date(),
-    minDate: new Date(),
-    format: 'MM/DD/YYYY h:mm A'
-  });
+    $('#event_scheduled_at').datetimepicker({
+      defaultDate: new Date(),
+      minDate: new Date(),
+      format: 'MM/DD/YYYY h:mm A'
+    });
+  })();

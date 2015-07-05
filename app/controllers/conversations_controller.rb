@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
-  before_filter :authenticate_user!, :mailbox
-  before_filter :conversation, except: [:index, :new, :create]
+  before_action :authenticate_user!, :mailbox
+  before_action :conversation, except: [:index, :new, :create]
 
   def create
     recipient_ids = conversation_params[:recipients].split(',')

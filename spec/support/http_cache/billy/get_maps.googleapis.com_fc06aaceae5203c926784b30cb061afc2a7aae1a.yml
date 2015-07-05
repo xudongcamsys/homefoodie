@@ -1,0 +1,21 @@
+---
+:scope: 
+:url: https://maps.googleapis.com/maps/api/js/AuthenticationService.Authenticate?1shttp%3A%2F%2F127.0.0.1%3A65142%2Fusers%2F2%2Fevents%2Fnew&5e1&callback=_xdc_._2vffgw&token=76873
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Content-Type: text/javascript; charset=UTF-8
+  Date: Sun, 28 Jun 2015 22:39:19 GMT
+  Pragma: no-cache
+  Expires: Fri, 01 Jan 1990 00:00:00 GMT
+  Cache-Control: no-cache, must-revalidate
+  Content-Disposition: attachment
+  Server: mafe
+  X-XSS-Protection: 1; mode=block
+  X-Frame-Options: SAMEORIGIN
+  Alternate-Protocol: 443:quic,p=1
+  Accept-Ranges: none
+  Vary: Accept-Encoding
+  Connection: close
+:content: "/**/_xdc_._2vffgw && _xdc_._2vffgw( [1,null,0] )"

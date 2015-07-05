@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :event_address do
-    lat 1.5
-    lng 1.5
-    address "MyString"
+    lat 40.7
+    lng -73.9
+    address "Central Park, New York, NY"
   end
 
 end

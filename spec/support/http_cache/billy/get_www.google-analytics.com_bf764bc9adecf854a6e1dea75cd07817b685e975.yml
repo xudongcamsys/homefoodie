@@ -1,0 +1,21 @@
+---
+:scope: 
+:url: http://www.google-analytics.com/__utm.gif?utmwv=5.6.4&utms=3&utmn=444625371&utmhn=127.0.0.1&utmcs=UTF-8&utmsr=1440x900&utmvp=1080x518&utmsc=24-bit&utmul=en-us&utmje=1&utmfl=18.0%20r0&utmdt=Homefoodie&utmhid=1086813283&utmr=-&utmp=%2Fusers%2F1%2Fdishes%2F1&utmht=1435531148795&utmac=UA-62218767-1&utmcc=__utma%3D96992031.34002333.1435531145.1435531145.1435531145.1%3B%2B__utmz%3D96992031.1435531145.1.1.utmcsr%3D(direct)%7Cutmccn%3D(direct)%7Cutmcmd%3D(none)%3B&utmjid=&utmu=qAAAAAAAAAAAAAAAAAAAAAAE~
+:body: ''
+:status: 200
+:method: get
+:headers:
+  Pragma: no-cache
+  Expires: Wed, 19 Apr 2000 11:43:00 GMT
+  Last-Modified: Wed, 21 Jan 2004 19:51:30 GMT
+  X-Content-Type-Options: nosniff
+  Content-Type: image/gif
+  Date: Sat, 27 Jun 2015 01:06:37 GMT
+  Server: Golfe2
+  Content-Length: '35'
+  Cache-Control: private, no-cache, no-cache=Set-Cookie, proxy-revalidate
+  Age: '163951'
+  Alternate-Protocol: 80:quic,p=0
+  Connection: close
+:content: !binary |-
+  R0lGODlhAQABAID/AP///wAAACwAAAAAAQABAAACAkQBADs=

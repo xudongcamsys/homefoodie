@@ -15,21 +15,21 @@ class Event < ActiveRecord::Base
   validates :event_address, presence: true
   validates :scheduled_at, presence: true
   validates :scheduled_hours, numericality: {greater_than_or_equal_to: 0}, allow_nil: true
-  validates :capacity, numericality: {greater_than_or_equal_to: 0, only_interger: true}, allow_nil: true
+  validates :capacity, numericality: {greater_than_or_equal_to: 0, only_integer: true}, allow_nil: true
 
   scope :public_only, -> { where(is_private: false) }
-  scope :today, -> { where("scheduled_at >= ? and scheduled_at <= ?", Date.today.beginning_of_day, Date.today.end_of_day) }
-  scope :past, -> { where("scheduled_at < ?", Date.today.beginning_of_day) }
-  scope :upcoming, -> { where("scheduled_at > ?", Date.today.end_of_day) }
+  scope :today, -> { where("scheduled_at >= ? and scheduled_at <= ?", Time.zone.today.beginning_of_day, Time.zone.today.end_of_day) }
+  scope :past, -> { where("scheduled_at < ?", Time.zone.today.beginning_of_day) }
+  scope :upcoming, -> { where("scheduled_at > ?", Time.zone.today.end_of_day) }
 
   accepts_nested_attributes_for :event_address, allow_destroy: true,
   reject_if: proc { |attributes| attributes['lat'].blank? && attributes['lng'].blank? }
 
 
   def self.find_events_by_attendee_name(name)
-    Event.includes(:organizer, :participants)
-      .where("(users.name like ?) OR (participants_events.name like ?)", "%#{name}%", "%#{name}%")
-      .references(:organizer, :participants).order(created_at: :desc)
+    includes(:participants)
+      .where("users.name like ?", "%#{name}%")
+      .references(:participants).order(created_at: :desc)
   end
 
   def is_organized_by?(a_user)

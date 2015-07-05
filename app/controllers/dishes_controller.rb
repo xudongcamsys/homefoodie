@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
   after_action :verify_authorized
   before_action :set_user
   before_action :set_dish, only: [:show, :edit, :update, :destroy]
@@ -26,10 +26,8 @@ class DishesController < ApplicationController
     respond_to do |format|
       if @dish.save
         format.html { redirect_to [@user, @dish], notice: 'Dish was successfully created.' }
-        format.json { render :show, status: :created, location: @dish }
       else
         format.html { render :new }
-        format.json { render json: @dish.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -38,10 +36,8 @@ class DishesController < ApplicationController
     respond_to do |format|
       if @dish.update(dish_params)
         format.html { redirect_to [@user, @dish], notice: 'Dish was successfully updated.' }
-        format.json { render :show, status: :ok, location: @dish }
       else
         format.html { render :edit }
-        format.json { render json: @dish.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -50,7 +46,6 @@ class DishesController < ApplicationController
     @dish.destroy
     respond_to do |format|
       format.html { redirect_to user_dishes_url(@user), notice: 'Dish was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

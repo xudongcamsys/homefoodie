@@ -1,5 +1,5 @@
 class DishPhotosController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   after_action :verify_authorized
   before_action :set_dish
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
