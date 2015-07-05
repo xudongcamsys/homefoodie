@@ -49,7 +49,7 @@ class Event < ActiveRecord::Base
   end
 
   def is_bookable_by?(applicant)
-    applicant && is_future? && !is_booked_by?(applicant) && !is_participated_by?(applicant)
+    applicant && is_future? && !is_booked_by?(applicant) && !is_participated_by?(applicant) && !is_full?
   end
 
   def is_unbookable_by?(applicant)
@@ -62,6 +62,11 @@ class Event < ActiveRecord::Base
 
   def booked_by!(applicant)
     Booking.create(event: self, applicant: applicant) if !is_booked_by?(applicant)
+  end
+
+  # TODO: is it worth adding :counter_cache in UserEvent model?
+  def is_full?
+    capacity && capacity == participants.count
   end
 
   def accept_booking!(booking)
