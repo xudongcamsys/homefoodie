@@ -1,9 +1,10 @@
 @import 'base/theme_vars';
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
+@import "dataTables/bootstrap/3/jquery.dataTables.bootstrap";
 @import "font-awesome";
 @import "framework_and_overrides";
 @import "theme";
 @import "off_canvas_nav";
-@import "locations";
 @import "rating";

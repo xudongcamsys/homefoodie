@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   has_one :location, dependent: :destroy
   has_many :dishes, dependent: :destroy
+  
+  has_many :organized_events, class_name: 'Event', foreign_key: 'organizer_id'
+  has_many :participated_event_relationships, class_name: 'UserEvent', foreign_key: 'participant_id'
+  has_many :participated_events, source: :event, through: :participated_event_relationships
 
   mount_uploader :avatar, AvatarUploader
   accepts_nested_attributes_for :location
@@ -101,6 +105,18 @@ class User < ActiveRecord::Base
 
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
+  end
+
+  def today_events
+    participated_events.today
+  end
+
+  def upcoming_events
+    participated_events.upcoming
+  end
+
+  def past_events
+    participated_events.past
   end
 
   private

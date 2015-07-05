@@ -1,0 +1,25 @@
+- edit_tabs = {"today" => "Today's Event", "upcoming" => 'Upcoming Events', "past" => 'Past Events'}
+
+- active_tab = edit_tabs.keys.index(params[:type]) ? params[:type] : "today"
+- active_tab_title = edit_tabs[active_tab] + " for #{@user.name}"
+
+.row.row-offcanvas.row-offcanvas-left
+  .col-sm-3.col-md-2.sidebar-offcanvas#sidebar{role: 'navigation'}
+    %ul.nav.nav-sidebar
+      - edit_tabs.each do | tab, label |
+        %li{class: active_tab == tab ? "active" : ''}
+          %a{href:"?type=#{tab}"}
+            = label
+    - if @user == current_user
+      .col-sm-12
+        = link_to 'Organize Event', new_user_event_path(@user), data: { no_turbolink: true }, class: 'btn btn-primary'
+        
+  .col-sm-9.col-md-10
+    %p.visible-xs
+      %button.btn.btn-primary.btn-xs{type: 'button', data: {toggle: 'offcanvas'}}
+        %i.glyphicon.glyphicon-chevron-left
+
+    .authform
+      %h3
+        = active_tab_title
+      = render partial: "events/list", locals: {events: @events}

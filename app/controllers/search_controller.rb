@@ -1,5 +1,4 @@
 class SearchController < ApplicationController
-  include LocationsHelper
 
   def dish
     dish_searcher = DishSearcher.new(params)

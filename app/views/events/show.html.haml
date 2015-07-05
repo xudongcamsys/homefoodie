@@ -1,0 +1,52 @@
+.row.col-sm-12
+  %h3
+    = @event.name
+  %h4
+    = "Organized by: #{@event.organizer_name}, scheduled at #{@event.formatted_scheduled_time}"
+  %h4
+    = @event.description
+%section.col-lg-3
+  - if @event.scheduled_hours
+    %p
+      %b
+        Duration:
+      = " #{@event.scheduled_hours} hours"
+  - if @event.capacity
+    %p
+      %b
+        Maximum participant:
+      = @event.capacity
+
+  - if @event.is_organized_by?(current_user)
+    = link_to 'Edit', edit_user_event_path(@event.organizer, @event)
+    \|
+  = link_to 'Back', user_events_path(@user)
+
+%section.col-lg-9
+  .col-sm-12
+    %p 
+      %b
+        Address:
+      = @event.address
+  .col-sm-12#event-map{style: 'height: 400px;'}
+  :javascript
+    (function(){
+      function initialize() {
+        var coords = #{@event.coords};
+        var myLatlng = new google.maps.LatLng(coords[0],coords[1]);
+        var mapOptions = {
+          zoom: 15,
+          center: myLatlng
+        }
+        var map = new google.maps.Map(document.getElementById('event-map'), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map
+        });
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    )();
+
+= include_gmap_js

@@ -11,7 +11,8 @@
     = link_to "Followers: #{@user.followers(User).count}", user_followers_path(@user)
   = render partial: 'profiles/follow_button', locals: {user: @user, show_unfollow_button: true}
   - if current_user != @user
-    = link_to "Message", new_conversation_path(recipients: @user.id), class: 'btn btn-info'
-  = link_to "Dishes", user_dishes_path(@user), class: 'btn btn-info'
+    = link_to "Message", new_conversation_path(recipients: @user.id), class: 'btn btn-success'
+  = link_to "Dishes", user_dishes_path(@user), class: 'btn btn-primary'
+  = link_to "Events", user_events_path(@user), class: 'btn btn-info'
 .col-lg-9
   = render_activities(@activities)
