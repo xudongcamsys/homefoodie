@@ -69,7 +69,7 @@ gem 'geokit-rails'
 # activity seed
 gem 'public_activity'
 
-# messaging
+# messaging Rails 4.2 compatible
 gem 'mailboxer', github: 'lacco/mailboxer'
 
 # typeahead
