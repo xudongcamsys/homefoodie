@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  include PublicActivity::Model
+  
   after_save :add_organizer_as_participant
 
   has_many :participated_event_relationships, class_name: 'UserEvent'
@@ -29,6 +31,8 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :event_address, allow_destroy: true,
   reject_if: proc { |attributes| attributes['lat'].blank? && attributes['lng'].blank? }
 
+  # default activity owner and recipient
+  tracked owner: Proc.new { | controller | controller.try(:current_user) }, recipient: :user 
 
   def self.find_events_by_attendee_name(name)
     includes(:participants)
