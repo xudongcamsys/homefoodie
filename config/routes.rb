@@ -33,6 +33,10 @@ Rails.application.routes.draw do
     post :accept
   end
 
+  resources :invites, only: [:index, :create, :destroy] do 
+    post :accept
+  end
+
   get 'dish_search', to: 'search#dish'
 
   resource :location, only: [:update]

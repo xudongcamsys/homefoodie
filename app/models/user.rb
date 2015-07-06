@@ -128,6 +128,11 @@ class User < ActiveRecord::Base
     participated_events.past
   end
 
+  def accept_invitation!(invite)
+    UserEvent.create(event: invite.event, participant: self)
+    invite.destroy
+  end
+
   private
 
   def build_profile

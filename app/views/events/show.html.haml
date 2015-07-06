@@ -20,7 +20,8 @@
   - if current_user
     = render 'booking_buttons'
   - if @event.is_organized_by?(current_user)
-    = link_to 'Edit', edit_user_event_path(@event.organizer, @event), class: 'btn btn-primary'
+    = link_to 'Invite', user_followees_path(current_user), class: 'btn btn-info'
+    = link_to 'Edit', edit_user_event_path(current_user, @event), class: 'btn btn-primary'
   = link_to 'Back', user_events_path(@user)
 
 %section.col-lg-9
