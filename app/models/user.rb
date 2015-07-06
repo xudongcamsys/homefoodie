@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
   has_many :organized_events, class_name: 'Event', foreign_key: 'organizer_id'
   has_many :participated_event_relationships, class_name: 'UserEvent', foreign_key: 'participant_id'
   has_many :participated_events, source: :event, through: :participated_event_relationships
+  has_many :invites, foreign_key: 'invitee_id'
+  has_many :invited_events, source: :event, through: :invites
+  has_many :bookings, foreign_key: 'applicant_id'
+  has_many :booked_events, source: :event, through: :bookings
+
 
   mount_uploader :avatar, AvatarUploader
   accepts_nested_attributes_for :location
@@ -103,6 +108,10 @@ class User < ActiveRecord::Base
     user
   end
 
+  def display_name
+    name || email
+  end
+
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
@@ -117,6 +126,11 @@ class User < ActiveRecord::Base
 
   def past_events
     participated_events.past
+  end
+
+  def accept_invitation!(invite)
+    UserEvent.create(event: invite.event, participant: self)
+    invite.destroy
   end
 
   private

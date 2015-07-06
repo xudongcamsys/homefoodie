@@ -1,8 +1,14 @@
 class Event < ActiveRecord::Base
+  include PublicActivity::Model
+  
   after_save :add_organizer_as_participant
 
   has_many :participated_event_relationships, class_name: 'UserEvent'
   has_many :participants, class_name: 'User', through: :participated_event_relationships
+  has_many :bookings
+  has_many :applicants, class_name: 'User', through: :bookings
+  has_many :invites
+  has_many :invitees, class_name: 'User', through: :invites
   belongs_to :organizer, class_name: 'User'
   belongs_to :event_address
 
@@ -25,6 +31,8 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :event_address, allow_destroy: true,
   reject_if: proc { |attributes| attributes['lat'].blank? && attributes['lng'].blank? }
 
+  # default activity owner and recipient
+  tracked owner: Proc.new { | controller | controller.try(:current_user) }, recipient: :user 
 
   def self.find_events_by_attendee_name(name)
     includes(:participants)
@@ -42,6 +50,36 @@ class Event < ActiveRecord::Base
 
   def formatted_scheduled_time
     scheduled_at.to_formatted_s(:long)
+  end
+
+  def is_bookable_by?(applicant)
+    applicant && is_future? && !is_booked_by?(applicant) && !is_participated_by?(applicant) && !is_full?
+  end
+
+  def is_unbookable_by?(applicant)
+    is_future? && is_booked_by?(applicant)
+  end
+
+  def is_booked_by?(applicant)
+    applicant && applicants.exists?(applicant.id)
+  end
+
+  def booked_by!(applicant)
+    Booking.create(event: self, applicant: applicant) if !is_booked_by?(applicant)
+  end
+
+  # TODO: is it worth adding :counter_cache in UserEvent model?
+  def is_full?
+    capacity && capacity == participants.count
+  end
+
+  def accept_booking!(booking)
+    UserEvent.create(event: self, participant: booking.applicant)
+    booking.destroy
+  end
+
+  def is_future?
+    scheduled_at > Time.zone.now
   end
 
   private
